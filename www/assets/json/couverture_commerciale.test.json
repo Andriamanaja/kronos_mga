@@ -1,0 +1,12 @@
+[
+    {
+        "create_uid" : 1 ,
+        "name" : "Couvert" ,
+        "write_uid" : 1
+    },
+    {
+        "create_uid" : 2 ,
+        "name" : "Non couvert" ,
+        "write_uid" : 2
+    }
+]

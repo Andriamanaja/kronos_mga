@@ -1,0 +1,29 @@
+[
+    {
+        "id" : 1 ,
+        "table_name" : "res_partner" ,
+        "table_id" : 1 ,
+        "action_type" : 0 ,
+        "type" : "test" ,
+        "is_synced" : 0 ,
+        "x_odoo_id" : 1
+    } ,
+    {
+        "id" : 2 ,
+        "table_name" : "res_partner" ,
+        "table_id" : 2 ,
+        "action_type" : 0 ,
+        "type" : "test" ,
+        "is_synced" : 0 ,
+        "x_odoo_id" : 2
+    } ,
+    {
+        "id" : 3 ,
+        "table_name" : "res_partner" ,
+        "table_id" : 4 ,
+        "action_type" : 0 ,
+        "type" : "test" ,
+        "is_synced" : 0 ,
+        "x_odoo_id" : 3
+    }
+]

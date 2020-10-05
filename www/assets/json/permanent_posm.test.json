@@ -1,0 +1,56 @@
+[
+    {
+      "id": 1,
+      "create_uid": 1,
+      "create_date": "2019-04-12 09:33:54",
+      "name": "Présentoir P&S/ITG",
+      "write_uid": 1,
+      "write_date": "2019-07-08 07:32:50",
+      "manufacturer_id": 1
+    },
+    {
+      "id": 2,
+      "create_uid": 1,
+      "create_date": "2019-07-08 07:35:08",
+      "name": "Etagère/ITG",
+      "write_uid": 1,
+      "write_date": "2019-07-08 07:35:22",
+      "manufacturer_id": 1
+    },
+    {
+      "id": 3,
+      "create_uid": 1,
+      "create_date": "2019-07-08 07:35:39",
+      "name": "Etagère/Focus",
+      "write_uid": 1,
+      "write_date": "2019-07-08 07:35:51",
+      "manufacturer_id": 2
+    },
+    {
+      "id": 4,
+      "create_uid": 1,
+      "create_date": "2019-07-08 07:36:07",
+      "name": "Présentoir P&S/Focus",
+      "write_uid": 1,
+      "write_date": "2019-07-08 07:36:41",
+      "manufacturer_id": 2
+    },
+    {
+      "id": 5,
+      "create_uid": 1,
+      "create_date": "2019-07-08 07:37:00",
+      "name": "Présentoir P&S/Fraude",
+      "write_uid": 1,
+      "write_date": "2019-07-08 07:37:15",
+      "manufacturer_id": 3
+    },
+    {
+      "id": 6,
+      "create_uid": 1,
+      "create_date": "2019-07-08 07:37:22",
+      "name": "Etagère/Fraude",
+      "write_uid": 1,
+      "write_date": "2019-07-08 07:37:33",
+      "manufacturer_id": 3
+    }
+  ]

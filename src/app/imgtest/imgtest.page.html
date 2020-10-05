@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>imgtest</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button  pButton label="SHOW" (click) = "showCompressed()">
+  </button>
+
+   <!-- <div class="table" id="content-table-scroll" *ngIf="has_data">
+        <p-table #dt [columns]="cols" [value]="data_for_screen">
+
+          <ng-template pTemplate="header" let-columns>
+            <tr style="background-color: #D3D3D3">
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field"
+                [ngStyle]="{'display': col.display, 'width' : col.width}">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+
+              <td *ngFor="let col of columns"
+                [ngStyle]="{'display': col.display, 'text-align' : col.text_align, 'width' : col.width}"
+                style="background-color: #D3D3D3">
+                {{rowData[col.field]}}
+              </td>
+
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+  <button type="button" style="margin-left: 19%;" (click)="showDialog()"
+    pButton icon="pi pi-info-circle" label="Accéder au questionnaire">
+  </button>
+
+  <p-dialog header="Tous les questions sur cette visite " [(visible)]="display" (onHide)="refresh()">
+    <form [formGroup]="form" (ngSubmit)="submit(model)">
+      <formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+      <button type="submit" pButton label="Valider" ></button>
+    </form>
+  </p-dialog> -->
+
+</ion-content>

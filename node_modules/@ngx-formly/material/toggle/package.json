@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/ngx-formly-material-toggle.umd.js",
+  "module": "../fesm5/ngx-formly-material-toggle.js",
+  "es2015": "../fesm2015/ngx-formly-material-toggle.js",
+  "esm5": "../esm5/toggle/ngx-formly-material-toggle.js",
+  "esm2015": "../esm2015/toggle/ngx-formly-material-toggle.js",
+  "fesm5": "../fesm5/ngx-formly-material-toggle.js",
+  "fesm2015": "../fesm2015/ngx-formly-material-toggle.js",
+  "typings": "ngx-formly-material-toggle.d.ts",
+  "metadata": "ngx-formly-material-toggle.metadata.json",
+  "sideEffects": false,
+  "name": "@ngx-formly/material/toggle"
+}

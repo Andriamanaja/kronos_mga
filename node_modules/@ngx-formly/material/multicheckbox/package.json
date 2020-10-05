@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/ngx-formly-material-multicheckbox.umd.js",
+  "module": "../fesm5/ngx-formly-material-multicheckbox.js",
+  "es2015": "../fesm2015/ngx-formly-material-multicheckbox.js",
+  "esm5": "../esm5/multicheckbox/ngx-formly-material-multicheckbox.js",
+  "esm2015": "../esm2015/multicheckbox/ngx-formly-material-multicheckbox.js",
+  "fesm5": "../fesm5/ngx-formly-material-multicheckbox.js",
+  "fesm2015": "../fesm2015/ngx-formly-material-multicheckbox.js",
+  "typings": "ngx-formly-material-multicheckbox.d.ts",
+  "metadata": "ngx-formly-material-multicheckbox.metadata.json",
+  "sideEffects": false,
+  "name": "@ngx-formly/material/multicheckbox"
+}

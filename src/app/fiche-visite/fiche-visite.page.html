@@ -1,0 +1,82 @@
+<ion-content>
+  <div class = "container">
+
+      <!-- HEAD -->
+    <div class = "head">
+      <div class="back_button"  >
+         <span>
+            <img src = "../../assets/image/logo_itg.png" (click)="open_menu()" />
+          </span>
+      </div>
+
+      <div class = "menu">
+        <div class="list_icon">
+          <i class="fas fa-at" style="color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+          <i class="fas fa-comments" style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+          <i class="fas fa-ban on fa-camera" style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+        </div> 
+      </div>
+
+       <app-head></app-head>
+       
+    </div>
+    <!-- HEAD -->
+
+      <div class="body">
+        <div class = "title_body">
+          <h3>Fiches de visite</h3>
+          <!--
+<div class = "btn_nw_cr">
+            <button pButton type="button" label="CRÉER"     class="bt ui-button-success" (click)="open_nouveau_fiche_visite()"></button>
+          </div>
+          -->
+        </div>
+    
+
+
+        <div class = "table_fiche_visite">
+
+            
+
+            <p-table #dt   [columns]="col_fv" [value]="data_fv" [paginator]="true" [paginatorPosition]="'top'" [rows]="25" [(selection)]="selected" dataKey="name" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+                <ng-template pTemplate="caption">
+                    <div style="text-align: right">        
+                        <i class="fas fa-search" style="margin: 4px 4px 0 0 ; color: gray; font-size: 20px;"></i>
+                        <input type="text" pInputText size="20" placeholder="Filtrer" (input)="dt.filterGlobal($event.target.value, 'contains')" >
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header" let-columns>
+                    <tr >
+                        <th *ngFor="let col of columns"  [pSortableColumn]="col.field" [ngStyle]="{'display': col.display}">
+                            {{col.header}}
+                            <p-sortIcon [field]="col.field"></p-sortIcon>
+                        </th>
+                    </tr>
+                </ng-template>
+                
+                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                    <tr [pSelectableRow]="rowData">
+
+                        <td *ngFor="let col of columns" (click) = "onRowClicked(rowData)" [ngStyle]="{'display': col.display}">
+                                {{rowData[col.field]}}
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+
+        </div>
+
+
+        <div class="spinner" *ngIf = "loadIndicator == true">
+            <ion-spinner name="lines" color="medium"></ion-spinner>
+        </div>
+
+      </div>
+
+      <div class="footer">
+
+      </div>
+  </div>
+
+</ion-content>

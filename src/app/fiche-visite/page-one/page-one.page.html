@@ -1,0 +1,148 @@
+<ion-content>
+	<div class="container">
+
+		<!-- HEAD -->
+		<div class="head">
+			<div class="back_button" (click)="open_menu()">
+				<span>
+					<img src="../../../assets/image/logo_itg.png" (click)="open_menu()" />
+				</span>
+			</div>
+
+			<div class="menu">
+				<div class="list_icon">
+					<i class="fas fa-at"
+						style="color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					<i class="fas fa-comments"
+						style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					<i class="fas fa-ban on fa-camera"
+						style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+				</div>
+			</div>
+
+			 <app-head></app-head>
+		</div>
+		<!-- HEAD -->
+
+
+		<div class="body">
+			<div class="bg-blanc">
+				<div class="title_body">
+					<h3>
+						<a (click)="page_fiche_visite()" *ngIf = "res_partner_name.partner_id">
+							<i class="fas fa-arrow-left" style="font-size: 18px ; color: #21B799"></i> {{res_partner_name.partner_id}}
+						</a>
+					</h3>
+				</div>				
+
+
+				<div class="breacumb ui-g">
+					<div class="ui-g-4 dropdownworkflow">
+
+					</div>
+					<div class="ui-g-8 dropdownworkflow noCLick">
+						<p class="etat">{{etat}}</p>
+					</div>
+				</div>
+
+
+				<!--<div>
+					<p-fieldset legend="Godfather I">
+						The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding. 
+						His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. 
+						Through Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, 
+						kind and benevolent to those who give respect, 
+						but given to ruthless violence whenever anything stands against the good of the family.
+					</p-fieldset>
+				</div> -->
+
+				<div class="bouton_visite" *ngIf=" etat == 'Nouvelle' && data_from_route.tour_status != 'cloture' ">
+					<div class="bouton_visite">
+						<button pButton type="button" label="DÉMARRER LA VISITE" class="bt2 ui-button-success"
+							(click)="demarrer_visite()"></button>
+					</div>
+				</div>
+
+
+
+
+				<div class="real-content-page" *ngIf="res_partner_name.partner_id">
+					<h3>{{res_partner_name.partner_id}} </h3>
+
+					<div class="msg_container">
+						<div class="icn_msg">
+							<ion-icon name="information-circle-outline"></ion-icon>
+						</div>
+						<div class="message_2"> {{my_goal}} </div>
+					</div>
+
+					<div class="sho-data">
+						<label>Nom du PDV</label>
+						<p>{{data_from_route.nom_pos}}</p>
+					</div>
+
+					<div class="sho-data">
+						<label>Nom du gérant</label>
+						<p>{{data_from_route.nom_gerant}}</p>
+					</div>
+
+					<div class="sho-data">
+						<label>Numero de téléphone</label>
+						<p>{{data_from_route.numero_telephone1}}</p>
+					</div>
+
+					<div class="sho-data">
+						<label>Adresse</label>
+						<p>{{data_from_route.adresse}}</p>
+					</div>
+
+					<div class="sho-data">
+						<label>Ville</label>
+						<p>{{data_from_route.ville}}</p>
+					</div>
+
+					<div class="sho-data">
+						<label>Repère</label>
+						<p>{{data_from_route.repere}}</p>
+					</div>
+
+					<div class="sho-data">
+						<label>Commercial</label>
+						<p>{{name}}</p>
+					</div>
+
+					<!--<div class="sho-data">
+						<label>POS initial</label>
+						<p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+					</div>-->
+
+					<div class="sho-data">
+						<label>Début de visite</label>
+						<p>{{date_debut}}</p>
+					</div>
+					<div class="sho-data">
+						<label>Fin de visite</label>
+						<p>{{date_fin}}</p>
+					</div>
+
+					<div class="sho-data" *ngIf="duree != 0">
+						<label>Durée de la visite</label>
+						<p>{{duree}}</p>
+					</div>
+
+					<div class="btn-action-etapes" *ngIf=" etat != 'Nouvelle' ">
+						<button pButton type="button" label="SUIVANT" class="bt" (click)="page_two()"></button>
+						<p>page 1/7</p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="footer">
+
+		</div>
+
+	</div>
+</ion-content>

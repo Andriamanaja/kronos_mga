@@ -1,0 +1,12 @@
+[
+    {
+        "create_uid" : 1, 
+        "name" : "Urbain", 
+        "write_uid" : 1
+    }, 
+    {
+        "create_uid" : 2, 
+        "name" : "Rural", 
+        "write_uid" : 2
+    }
+]

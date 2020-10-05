@@ -1,0 +1,75 @@
+[
+    {
+        "create_uid" : 1, 
+        "code": "123", 
+        "name" : "Secteur 1_1", 
+        "write_uid" : 1, 
+        "zone_id" : 1 ,
+        "seller_id" : 1,
+        "promoteur_id" : 1
+    }, 
+    {
+        "create_uid" : 2, 
+        "code": "321", 
+        "name" : "Secteur 2_1", 
+        "write_uid" : 2, 
+        "zone_id" : 2 ,
+        "seller_id" : 1,
+        "promoteur_id" : 1
+    }, 
+    {
+        "create_uid" : 3, 
+        "code": "456", 
+        "name" : "Secteur 1_2", 
+        "write_uid" : 3, 
+        "zone_id" : 1 ,
+        "seller_id" : 1,
+        "promoteur_id" : 1
+    }, 
+    {
+        "create_uid" : 4, 
+        "code": "654", 
+        "name" : "Secteur 2_2", 
+        "write_uid" : 4, 
+        "zone_id" : 2 ,
+        "seller_id" : 1,
+        "promoteur_id" : 1
+    } ,
+    {
+        "create_uid" : 5, 
+        "code": "789", 
+        "name" : "Secteur 3_1", 
+        "write_uid" : 5, 
+        "zone_id" : 3 ,
+        "seller_id" : 1,
+        "promoteur_id" : 1
+    }, 
+    {
+        "create_uid" : 6, 
+        "code": "987", 
+        "name" : "Secteur 3_2", 
+        "write_uid" : 6, 
+        "zone_id" : 3 ,
+        "seller_id" : 1,
+        "promoteur_id" : 1
+    }, 
+    {
+        "create_uid" : 7, 
+        "code": "147", 
+        "name" : "Secteur 4_1", 
+        "write_uid" : 7, 
+        "zone_id" : 4 ,
+        "seller_id" : 1,
+        "promoteur_id" : 1
+    }, 
+    {
+        "create_uid" : 8, 
+        "code": "741", 
+        "name" : "Secteur 4_2", 
+        "write_uid" : 8, 
+        "zone_id" : 4 ,
+        "seller_id" : 1,
+        "promoteur_id" : 1
+    }
+    
+]

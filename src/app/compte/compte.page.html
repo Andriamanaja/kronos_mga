@@ -1,0 +1,94 @@
+<ion-content>
+	<div class="container">
+
+		<!-- HEAD -->
+		<div class="head">
+			<div class="back_button">
+				<span>
+					<img src="../../assets/image/logo_itg.png" (click)="open_menu()" />
+				</span>
+			</div>
+
+			<div class="menu">
+				<div class="list_icon">
+					<i class="fas fa-at"
+						style="color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					<i class="fas fa-comments"
+						style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					<i class="fas fa-ban on fa-camera"
+						style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+				</div>
+			</div>
+
+			 <app-head></app-head>
+		</div>
+		<!-- HEAD -->
+
+
+		<div class="body">
+			<div class="bg-blanc">
+
+				<div class="title_body">
+					<h3>
+						<a (click)="home_page()">
+							<i class="fas fa-arrow-left" style="font-size: 18px ; color: #21B799">
+							</i>
+						</a>
+						Modifier mot de passe
+					</h3>
+				</div>
+
+				<div class="real-content-page">
+					<form class="connexion ui-g ui-fluid" [formGroup]="password" (ngSubmit)="changePassword()">
+
+						<div class="ui-g-12 ui-md-3">
+							<p class="first">Ancien mot de passe</p>
+							<div class="ui-inputgroup">
+								<input [type]="hide_a ? 'password' : 'text'" size="30" pInputText
+									formControlName="oldpassword" required>
+								<button (click)="hide_psw_a()" pButton type="button" icon="pi pi-eye"
+									class="ui-button-warn"></button>
+							</div>
+						</div>
+
+						<div class="ui-g-12 ui-md-3">
+							<p class="first">Nouveau mot de passe</p>
+							<div class="ui-inputgroup">
+								<input [type]="hide_b ? 'password' : 'text'" size="30" pInputText
+									formControlName="newpassword" required>
+								<button (click)="hide_psw_b()" pButton type="button" icon="pi pi-eye"
+									class="ui-button-warn"></button>
+							</div>
+						</div>
+
+						<div class="ui-g-12 ui-md-3">
+							<p class="first">Confirmer mot de passe</p>
+							<div class="ui-inputgroup">
+								<input [type]="hide_c ? 'password' : 'text'" size="30" pInputText
+									formControlName="confirmpassword" required>
+								<button (click)="hide_psw_c()" pButton type="button" icon="pi pi-eye"
+									class="ui-button-warn"></button>
+							</div>
+						</div>
+
+						<div class="bouton">
+							<button pButton type="submit" label="CONFIRMER" class="bt2 ui-button-success"></button>
+						</div>
+
+					</form>
+				</div>
+
+				<div class="bouton_visite">
+					
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="ui-g footer">
+			
+		</div>
+
+	</div>
+</ion-content>

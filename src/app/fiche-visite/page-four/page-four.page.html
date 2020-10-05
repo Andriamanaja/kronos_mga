@@ -1,0 +1,160 @@
+<ion-content>
+	<div class="container" id="fourPageStyle">
+
+		<!-- HEAD -->
+		<div class="head">
+			<div class="back_button">
+				<span>
+					<img src="../../../assets/image/logo_itg.png" (click)="open_menu()" />
+				</span>
+			</div>
+
+			<div class="menu">
+				<div class="list_icon">
+					<i class="fas fa-at"
+						style="color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					<i class="fas fa-comments"
+						style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					<i class="fas fa-ban on fa-camera"
+						style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+				</div>
+			</div>
+
+			 <app-head></app-head>
+		</div>
+		<!-- HEAD -->
+
+
+		<div class="body">
+			<div class="bg-blanc">
+				<div class="title_body">
+					<h3 *ngIf = "data_from_route.partner_id">
+						<a (click)="page_three()">
+							<i class="fas fa-arrow-left" style="font-size: 18px ; color: #21B799"></i>
+						</a>
+						{{data_from_route.partner_id}}
+					</h3>
+				</div>
+				<!--<div *ngIf="etat != 'Clôturée'">
+					<div class="btn-action-general">
+						<button *ngIf="edit == false" pButton type="button" label="MODIFIER" class="bt bt-vert"
+							(click)="enable_edit()"></button>
+						<button *ngIf="edit == true" pButton type="button" label="SAUVEGARDER" (click)="save()"
+							class="bt bt-vert"></button>
+						<button *ngIf="edit == true" pButton type="button" label="ANNULER" (click)="cancel()"
+							class="bt ui-button-secondary"></button> 
+					</div>
+				</div>-->
+
+
+				<div class="breacumb ui-g">
+					<div class="ui-g-4 dropdownworkflow">
+
+					</div>
+					<div class="ui-g-8 dropdownworkflow noCLick">
+						<p class="etat">{{etat}}</p>
+					</div>
+				</div>
+
+				<div class="real-content-page">
+					<h3 *ngIf = "data_from_route.partner_id">{{data_from_route.partner_id}}</h3>
+
+					<h5>Audit Point de Vente</h5>
+					<div class="table" *ngIf="etat == 'Clôturée'  || data_from_route.tour_status == 'cloture' ">
+						<p-table #dt class="standart-tableau" [value]="pos_audit_data" [scrollable]="true">
+							<ng-template pTemplate="header">
+								<tr>
+									<th style="width: 150px;padding: 0.571em 0;">Liste des critères à évaluer</th>
+									<th style="width: 150px;padding: 0.571em 0;">Visite précédente</th>
+									<th style="width: 100px;padding: 0.571em 0;">Début Visite</th>
+									<th style="width: 100px;padding: 0.571em 0;">Fin visite</th>
+								</tr>
+							</ng-template>
+							<ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+								<tr [pEditableRow]="rowData">
+
+									<td style="width: 150px; background-color: #d3d3d3;padding: 0.571em 0;">
+										{{rowData.name}}</td>
+									<td style="width: 150px; background-color: #d3d3d3;padding: 0.571em 0;">
+										{{rowData.last_visit_response}}</td>
+									<td style="width: 100px; background-color: #d3d3d3;padding: 0.571em 0;">
+										{{rowData.visit_begin}}</td>
+									<td style="width: 100px; background-color: #d3d3d3;padding: 0.571em 0;">
+										{{rowData.visit_end}}</td>
+								</tr>
+							</ng-template>
+						</p-table>
+					</div>
+
+					<div class="table" *ngIf="etat != 'Clôturée'  && data_from_route.tour_status != 'cloture' "  id="pageFourId">
+						<p-table #dt class="standart-tableau" [value]="pos_audit_data" [scrollable]="true">
+							<ng-template pTemplate="header">
+								<tr>
+									<th style="width: 150px;padding: 0.571em 0;">Liste des critères à évaluer</th>
+									<th style="width: 150px;padding: 0.571em 0;">Visite précédente</th>
+									<th style="width: 100px;padding: 0.571em 0;">Début Visite</th>
+									<th style="width: 100px;padding: 0.571em 0;">Fin visite</th>
+								</tr>
+							</ng-template>
+							<ng-template pTemplate="body" let-rowData let-editing="editing" let-ri="rowIndex">
+								<tr [pEditableRow]="rowData">
+
+									<td
+										style="pointer-events: none; background: #d3d3d3 ;width: 150px;padding: 0.571em 0;">
+										{{rowData.name}}</td>
+									<td
+										style="pointer-events: none; background: #d3d3d3 ;width: 150px;padding: 0.571em 0;">
+										{{rowData.last_visit_response}}</td>
+									<td pEditableColumn style="width: 100px;padding: 0.571em 0;">
+										<p-cellEditor>
+											<ng-template pTemplate="input">
+												<p-dropdown [options]="rowData.answer_name"
+													[(ngModel)]="rowData.visit_begin" [style]="{'min-width':'100%'}"
+													value="rowData.answer_name" itemSize="20">{{rowData.visit_begin}}
+												</p-dropdown>
+											</ng-template>
+
+											<ng-template pTemplate="output">
+												{{rowData.visit_begin}}
+											</ng-template>
+
+										</p-cellEditor>
+									</td>
+
+									<td pEditableColumn style="width: 100px;padding: 0.571em 0;">
+										<p-cellEditor>
+											<ng-template pTemplate="input">
+												<p-dropdown [options]="rowData.answer_name"
+													[(ngModel)]="rowData.visit_end" value="rowData.answer_name"
+													[style]="{'min-width':'100%'}" itemSize="20">{{rowData.visit_end}}
+												</p-dropdown>
+											</ng-template>
+
+											<ng-template pTemplate="output">
+												{{rowData.visit_end}}
+											</ng-template>
+										</p-cellEditor>
+									</td>
+								</tr>
+							</ng-template>
+						</p-table>
+					</div>
+
+				</div>
+				<br>
+				<div></div>
+				<div class="btn-action-etapes">
+					<button pButton type="button" label="RETOUR" class="bt btn-retour" (click)="page_three()"></button>
+					<span style="margin-left: 5px;margin-right: 5px;">ou</span>
+					<button pButton type="button" label="SUIVANT" class="bt btn-suivant" (click)="page_five()"></button>
+					<p>page 4/7</p>
+				</div>
+
+			</div>
+
+		</div>
+		<div class="footer"></div>
+
+	</div>
+
+</ion-content>

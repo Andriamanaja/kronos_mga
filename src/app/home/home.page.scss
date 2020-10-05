@@ -1,0 +1,45 @@
+.head {
+    width: 150px;
+    height: 100px;
+    display: table;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    background-color: transparent;
+}
+.first{
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.connexion{
+    display: block;
+    margin-top: 0em;
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.bouton {
+    margin-top: 1em;
+}
+.link{
+    width: 90%;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 3%;
+}
+
+.field{
+    display: grid
+}
+.err {
+    margin-top: 2px;
+}
+button.ui-button {
+    width: 150px;
+    display: block;
+    margin-left: auto;
+}
+

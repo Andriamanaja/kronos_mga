@@ -1,0 +1,16 @@
+[
+    {
+        "create_uid" : "1" ,
+        "name" : "contrat_1" ,
+        "write_uid" : "" ,
+        "date_debut_contrat" : "2019-05-01 14:50:32" ,
+        "date_fin_contrat" : "2019-05-30 14:50:32"
+    },
+    {
+        "create_uid" : "2" ,
+        "name" : "contrat_2" ,
+        "write_uid" : "" ,
+        "date_debut_contrat" : "2019-06-01 14:50:32" ,
+        "date_fin_contrat" : "2019-06-30 14:50:32"
+    }
+]

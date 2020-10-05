@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "/home/andriamanaja/Documents/ionic project/primeng"
+		},
+		{
+			"path": "/home/andriamanaja/Documents/node-prjoect/server_bu"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true,
+		"sqltools.connections": [
+			{
+				"database": "/home/andriamanaja/Bureau/imp_tob.db",
+				"dialect": "SQLite",
+				"name": "imp_tob"
+			}
+		]
+	}
+}

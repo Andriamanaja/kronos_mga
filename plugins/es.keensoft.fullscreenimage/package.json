@@ -1,0 +1,44 @@
+{
+  "_from": "es.keensoft.fullscreenimage",
+  "_id": "es.keensoft.fullscreenimage@0.2.10",
+  "_inBundle": false,
+  "_integrity": "sha1-V2MANyJUpMbt8kK51I/7ZIcbqPU=",
+  "_location": "/es.keensoft.fullscreenimage",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "es.keensoft.fullscreenimage",
+    "name": "es.keensoft.fullscreenimage",
+    "escapedName": "es.keensoft.fullscreenimage",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/es.keensoft.fullscreenimage/-/es.keensoft.fullscreenimage-0.2.10.tgz",
+  "_shasum": "576300372254a4c6edf242b9d48ffb64871ba8f5",
+  "_spec": "es.keensoft.fullscreenimage",
+  "_where": "/home/andriamanaja/Documents/ionic project/primeng",
+  "author": {
+    "name": "keensoft"
+  },
+  "bugs": {
+    "url": "https://github.com/keensoft/FullScreenImage-Cordova-Plugin/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Plugin to show images from cordova project and use it with native components.",
+  "homepage": "https://github.com/keensoft/FullScreenImage-Cordova-Plugin",
+  "keywords": [],
+  "main": "index",
+  "name": "es.keensoft.fullscreenimage",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/keensoft/FullScreenImage-Cordova-Plugin.git"
+  },
+  "version": "0.2.10"
+}

@@ -1,0 +1,14 @@
+[
+    {
+        "create_uid" : 1 ,
+        "name" : "Alimentation générale" ,
+        "canal_id" : 1 ,
+        "write_uid" : 1
+    },
+    {
+        "create_uid" : 2 ,
+        "name" : "Bar" ,
+        "canal_id" : 2 ,
+        "write_uid" : 2
+    }
+] 

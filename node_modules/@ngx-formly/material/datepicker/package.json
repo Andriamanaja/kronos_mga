@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/ngx-formly-material-datepicker.umd.js",
+  "module": "../fesm5/ngx-formly-material-datepicker.js",
+  "es2015": "../fesm2015/ngx-formly-material-datepicker.js",
+  "esm5": "../esm5/datepicker/ngx-formly-material-datepicker.js",
+  "esm2015": "../esm2015/datepicker/ngx-formly-material-datepicker.js",
+  "fesm5": "../fesm5/ngx-formly-material-datepicker.js",
+  "fesm2015": "../fesm2015/ngx-formly-material-datepicker.js",
+  "typings": "ngx-formly-material-datepicker.d.ts",
+  "metadata": "ngx-formly-material-datepicker.metadata.json",
+  "sideEffects": false,
+  "name": "@ngx-formly/material/datepicker"
+}

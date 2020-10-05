@@ -1,0 +1,18 @@
+[
+    {
+        "create_uid" : 1 ,
+        "name" : "Oui" ,
+        "write_uid" : 1
+    },
+    {
+        "create_uid" : 2 ,
+        "name" : "Non" ,
+        "write_uid" : 2
+    },
+    {
+        "create_uid" : 3 ,
+        "name" : "Oui avec condition" ,
+        "write_uid" : 3
+    }  
+]
+

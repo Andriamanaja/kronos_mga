@@ -1,0 +1,66 @@
+{
+  "_from": "cordova-plugin-dbcopy",
+  "_id": "cordova-plugin-dbcopy@2.1.2",
+  "_inBundle": false,
+  "_integrity": "sha512-ANws8JvtPetxexNB81k1csPCOWdxYJF7iTVgzoE3GbtbUEXrvJUrbzA0BWLJeT+kqa0xP3g3zPMjGNfWudNECg==",
+  "_location": "/cordova-plugin-dbcopy",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-dbcopy",
+    "name": "cordova-plugin-dbcopy",
+    "escapedName": "cordova-plugin-dbcopy",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-dbcopy/-/cordova-plugin-dbcopy-2.1.2.tgz",
+  "_shasum": "3a5b8252a14d21fd1495cec2460bb7f374a764ab",
+  "_spec": "cordova-plugin-dbcopy",
+  "_where": "/home/andriamanaja/Documents/ionic project/primeng",
+  "author": {
+    "name": "Rahul Pandey"
+  },
+  "bugs": {
+    "url": "https://github.com/an-rahulpandey/cordova-plugin-dbcopy/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-dbcopy",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "deprecated": false,
+  "description": "Cordova/Phonegap plugin to copy SQLite Database from www directory to app database directory",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "homepage": "https://github.com/an-rahulpandey/cordova-plugin-dbcopy",
+  "keywords": [
+    "sqlite db copy",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "db copy",
+    "cordova sqlite",
+    "database copy",
+    "sqlite database copy"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-dbcopy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/an-rahulpandey/cordova-plugin-dbcopy.git"
+  },
+  "version": "2.1.2"
+}

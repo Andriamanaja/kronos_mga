@@ -1,0 +1,22 @@
+[
+    {
+        "create_uid" : 1 ,
+        "name" : "Presque toujours" ,
+        "write_uid" : 1
+    },
+    {
+        "create_uid" : 2 ,
+        "name" : "Refuse tout" ,
+        "write_uid" : 2
+    },
+    {
+        "create_uid" : 3 ,
+        "name" : "Temps en temps" ,
+        "write_uid" : 3
+    },
+    {
+        "create_uid" : 4 ,
+        "name" : "Toujours" ,
+        "write_uid" : 4
+    }
+]

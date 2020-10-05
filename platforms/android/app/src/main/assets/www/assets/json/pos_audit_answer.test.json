@@ -1,0 +1,92 @@
+[
+    {
+      "id": 1,
+      "create_uid": 1,
+      "criteria_id": 1,
+      "name": "oui",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:02",
+      "create_date": "2019-06-06 06:38:02"
+    },
+    {
+      "id": 2,
+      "create_uid": 1,
+      "criteria_id": 1,
+      "name": "non",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:02",
+      "create_date": "2019-06-06 06:38:02"
+    },
+    {
+      "id": 3,
+      "create_uid": 1,
+      "criteria_id": 2,
+      "name": "oui",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:24",
+      "create_date": "2019-06-06 06:38:24"
+    },
+    {
+      "id": 4,
+      "create_uid": 1,
+      "criteria_id": 2,
+      "name": "non",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:24",
+      "create_date": "2019-06-06 06:38:24"
+    },
+    {
+      "id": 5,
+      "create_uid": 1,
+      "criteria_id": 3,
+      "name": "oui",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:47",
+      "create_date": "2019-06-06 06:38:47"
+    },
+    {
+      "id": 6,
+      "create_uid": 1,
+      "criteria_id": 3,
+      "name": "non",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:47",
+      "create_date": "2019-06-06 06:38:47"
+    },
+    {
+      "id": 7,
+      "create_uid": 1,
+      "criteria_id": 4,
+      "name": "oui",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:39:12",
+      "create_date": "2019-06-06 06:39:12"
+    },
+    {
+      "id": 8,
+      "create_uid": 1,
+      "criteria_id": 4,
+      "name": "non",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:39:12",
+      "create_date": "2019-06-06 06:39:12"
+    },
+    {
+      "id": 9,
+      "create_uid": 1,
+      "criteria_id": 5,
+      "name": "oui",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:39:37",
+      "create_date": "2019-06-06 06:39:37"
+    },
+    {
+      "id": 10,
+      "create_uid": 1,
+      "criteria_id": 5,
+      "name": "non",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:39:37",
+      "create_date": "2019-06-06 06:39:37"
+    }
+  ]

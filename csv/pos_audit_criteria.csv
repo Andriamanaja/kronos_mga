@@ -1,0 +1,6 @@
+id	create_uid	create_date	name	write_uid	write_date	active
+1	1	2019-06-06 06:38:02	Respect planogramme	1	2019-06-06 06:38:02	true
+2	1	2019-06-06 06:38:08	Stock minimum	1	2019-06-06 06:38:24	true
+3	1	2019-06-06 06:38:30	Présence visuel PLV	1	2019-06-06 06:38:47	true
+4	1	2019-06-06 06:38:49	Respect nombre de facings	1	2019-06-06 06:39:12	true
+5	1	2019-06-06 06:39:14	Allumage du présentoir	1	2019-06-06 06:39:37	true

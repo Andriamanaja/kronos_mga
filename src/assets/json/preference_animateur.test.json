@@ -1,0 +1,22 @@
+[
+    {
+        "create_uid" : 1 ,
+        "name" : "C'est égal" ,
+        "write_uid" : 1
+    },
+    {
+        "create_uid" : 2 ,
+        "name" : "Femme" ,
+        "write_uid" : 2
+    },
+    {
+        "create_uid" : 3 ,
+        "name" : "Homme" ,
+        "write_uid" : 3
+    }, 
+    {
+        "create_uid" : 4 ,
+        "name" : "Néant" ,
+        "write_uid" : 4
+    } 
+]

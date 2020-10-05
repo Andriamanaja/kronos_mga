@@ -1,0 +1,901 @@
+<ion-content>
+	<p-toast [style]="{marginTop: '80px'}" position="top-right" key="invalid"></p-toast>
+	<div *ngIf="edit == false" class="container">
+		<div class="container">
+			<!-- HEAD -->
+			<div class="head">
+				<div class="back_button">
+					<span>
+						<img (click)="open_menu()" src="../../assets/image/logo_itg.png" />
+					</span>
+				</div>
+
+				<div class="menu">
+					<div class="list_icon">
+						<i class="fas fa-at"
+							style="color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+						<i class="fas fa-comments"
+							style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+						<i class="fas fa-ban on fa-camera"
+							style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					</div>
+				</div>
+
+				  <app-head></app-head>
+				 
+			</div>
+
+
+			<div class="body">
+				<div class="title_body">
+					<div class="ui-g">
+						<div (click)="open_fiche_client()" class="ui-g-1">
+							<i class="fas fa-arrow-left" style="font-size: 18px ; color: #21B799"> </i>
+						</div>
+						<div class="ui-g-11">
+							<h3> {{data_cli.name}} </h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="btn_nw_cr">
+					<button *ngIf="client_detail.state_id != 'VALIDÉE PAR ADMINISTRATEUR' " pButton type="button" label="MODIFIER" class="bt ui-button-success"
+						(click)="edit_fiche_client()"></button>
+					<button pButton type="button" label="CRÉER" class="bt ui-button-secondary"
+						(click)="create_fiche_client()"></button>
+					<div *ngIf="loadIndicator" class="loadIndicator">
+						<ion-spinner name="dots"></ion-spinner>
+					</div>
+				</div>
+
+				<div class="breacumb2 ui-g">
+					<div class="ui-g-4 dropdownworkflow">
+
+					</div>
+					<div class="ui-g-8 dropdownworkflow noCLick">
+							<p class="etat3">{{client_detail.state_id}}</p>
+						</div>
+				</div>
+
+				<div *ngIf="condition" class="archive  ui-g">
+					<div class="ui-g-7"></div>
+					<div  class="div_btn ui-g-5">
+						<!-- <button pButton type="button" icon="pi pi-folder" iconPos="left" label="ARCHIVER"  class="bt ui-button-danger"></button> -->
+						<!-- 	<ul class="CustomArchive">
+					  <li (click)="ConvertStatut(etat)">
+						<i class="pi pi-folder"></i>
+							{{etat}}
+					  </li>
+					</ul>-->
+					</div>
+				</div>
+				<div class="photo  ui-g">
+					<div class="ui-g-9">
+						<div *ngIf="!client_detail.photo_uri"> <i class="pi pi-camera"
+								style="font-size: 100px ; color: gray"></i> <br /></div>
+						<div *ngIf="client_detail.photo_uri" [style.background]="'url('+ client_detail.photo_uri +')'"
+							class="contentAvatar" (click)="open_full_screen()"></div>
+						<h2 class="DataCLI">{{data_cli.name}}</h2>
+					</div>
+
+					<div *ngIf="client_detail.active == 1" class="box ui-g-3">
+						<div class="ribbon ribbon-top-right"><span class="ribbon_green">ACTIF</span></div>
+					</div>
+
+					<div *ngIf="client_detail.active == 0" class="box ui-g-3">
+						<div class="ribbon ribbon-top-right"><span class="ribbon_red">INACTIF</span></div>
+					</div>
+
+				</div>
+
+
+				<div class="form">
+					<div class="form_inside">
+						<div class="form_item">
+							<!--Organisation Commerciale-->
+							<h3>Organisation Commerciale</h3>
+							<ion-label position="floating">Région</ion-label>
+							<p> {{client_detail.region}}</p>
+							<ion-label position="floating">Agence</ion-label>
+							<p> {{client_detail.agence}}</p>
+							<!--<ion-label position="floating">Zone</ion-label>
+					  <p> {{client_detail.zone}}</p> -->
+							<ion-label position="floating">Secteur</ion-label>
+							<p> {{client_detail.secteur}}</p>
+							<!--Organisation Commerciale-->
+						</div>
+
+
+						<div class="form_item">
+							<!--Coordonnées du point de vente-->
+							<h3>Coordonnées du point de vente</h3>
+							<ion-label position="floating">Nom du PDV</ion-label>
+							<p> {{client_detail.nom_pos}}</p>
+							<ion-label position="floating">Nom du Gérant</ion-label>
+							<p> {{client_detail.nom_gerant}}</p>
+							<ion-label position="floating">Adresse</ion-label>
+							<p> {{client_detail.adresse}}</p>
+							<ion-label position="floating">Repère</ion-label>
+							<p> {{client_detail.repere}}</p>
+							<ion-label position="floating">Quartier</ion-label>
+							<p> {{client_detail.quartier}}</p>
+							<ion-label position="floating">Ville</ion-label>
+							<p> {{client_detail.ville}}</p>
+							<ion-label position="floating">N° de téléphone 1</ion-label>
+							<p> {{client_detail.numero_telephone1}}</p>
+							<ion-label position="floating">N° de téléphone 2</ion-label>
+							<p> {{client_detail.numero_telephone2}}</p>
+							<ion-label position="floating">N° de téléphone 3</ion-label>
+							<p> {{client_detail.numero_telephone3}}</p>
+							<!--Coordonnées du point de vente-->
+						</div>
+
+						<div class="form_item">
+							<!--Coordonnées complémentaires du Point de Vente-->
+							<h3>Coordonnées complémentaires du Point de Vente</h3>
+							<ion-label position="floating">Emplacement</ion-label>
+							<p> {{client_detail.emplacement}}</p>
+							<ion-label position="floating">Proximité</ion-label>
+							<p> {{client_detail.proximite}}</p>
+							<ion-label position="floating">Type Quartier</ion-label>
+							<p> {{client_detail.type_quartier}}</p>
+							<!--<div class="gps">
+								<p>Coordonnées GPS Latitude : {{client_detail.provider_latitude}}</p>
+								<p>Coordonnées GPS Longitude : {{client_detail.provider_longitude}} </p>
+							</div> -->
+							<!--Coordonnées complémentaires du Poin de Vente-->
+						</div>
+
+
+						<div class="form_item">
+							<!--Typologie de Point de Vente-->
+							<h3>Typologie de Point de Vente</h3>
+							<ion-label position="floating">Type Client</ion-label>
+							<p> {{client_detail.type_client}}</p>
+							<ion-label position="floating">Activité PDV</ion-label>
+							<p> {{client_detail.activite_pos}}</p>
+							<ion-label position="floating">Canal</ion-label>
+							<p>{{client_detail.canal_id}}</p>
+							<ion-label position="floating">Enseigne d'appartenance</ion-label>
+							<p> {{client_detail.enseigne_appartenance}}</p>
+
+							<div class="ui-g">
+
+								<div class="ui-g-6">
+									<ion-label position="floating">Classification 1</ion-label>
+									<p> {{client_detail.classification1}}</p>
+								</div>
+
+								<div class="ui-g-6">
+									<ion-label position="floating">Classification 2</ion-label>
+									<p> {{client_detail.classification2}}</p>
+								</div>
+
+							</div>
+
+							<!--Typologie de Point de Vente-->
+						</div>
+
+						<div class="form_item">
+							<!--Couverture commerciale-->
+							<h3>Couverture commerciale</h3>
+							<ion-label position="floating">Couverture commerciale</ion-label>
+							<p> {{client_detail.couverture_commerciale}}</p>
+							<ion-label position="floating">Fréquence de visite</ion-label>
+							<p> {{client_detail.frequence_visite}}</p>
+							<!--Couverture commerciale-->
+						</div>
+
+
+
+						<!--ZAVATRA MITSIVALANA-->
+						<p-tabView>
+							<p-tabPanel header="AGENTS COMMERCIAUX">
+								<ion-chip *ngFor="let login of client_detail.cnc_login">
+									<ion-label>{{login.display}}</ion-label>
+								</ion-chip>
+							</p-tabPanel>
+
+							<p-tabPanel header="PERMANENT POSM">
+								<ion-label position="floating">Cible installation présentoirs</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.cible_installation_presentoirs}}</p>
+
+								<ion-label position="floating">Permanent POSM 1/5</ion-label> <br />
+
+								<ion-chip *ngFor="let posm of client_detail.cnc_posm">
+									<ion-label>{{posm.display}}</ion-label>
+								</ion-chip>
+
+
+							</p-tabPanel>
+
+							<p-tabPanel header="CONTRAT">
+								<ion-label position="floating">Contrat</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.contrat}}</p>
+								<ion-label position="floating">Date debut contrat</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.date_debut_contrat}}</p>
+								<ion-label position="floating">Date fin contrat</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.date_debut_contrat}}</p>
+							</p-tabPanel>
+
+							<p-tabPanel header="ACTIVATION">
+								<ion-label position="floating">Coopération ITG</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.cooperation_itg}}</p>
+								<ion-label position="floating">Cible Activation</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.cible_activation}}</p>
+								<ion-label position="floating">Activation autorisée</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.activation_autorisee}}</p>
+								<ion-label position="floating">Préférence animateur</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.preference_animateur}}</p>
+							</p-tabPanel>
+
+							<p-tabPanel header="APPROVISIONNEMENT">
+								<ion-label position="floating">Fréquence d'approvisionnement</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.frequence_approvisionnement}}</p>
+								<ion-label position="floating">Source d'approvisionnement</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.new_source_approvisionnement}}</p>
+								<ion-label position="floating">Fournisseur principal</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.new_fournisseur_principal}}</p>
+								<ion-label position="floating">Fournisseur secondaire</ion-label>
+								<p class="TxtBoldtabPanel"> {{client_detail.new_fournisseur_secondaire}}</p>
+							</p-tabPanel>
+
+						</p-tabView>
+
+						<!--ZAVATRA MITSIVALANA-->
+						<!--Commentaire-->
+						<ion-label position="floating">Commentaires</ion-label>
+						<p> {{client_detail.commentaire}}</p>
+						<!--Commentaire-->
+
+
+					</div>
+				</div>
+			</div>
+
+			<div class="footer"></div>
+
+		</div>
+	</div>
+
+	<!--EDIT-->
+	<div *ngIf="edit == true" class="container">
+		<div class="container">
+
+			<!-- HEAD -->
+			<div class="head">
+				<div class="back_button">
+					<span>
+						<img (click)="open_menu()" src="../../assets/image/logo_itg.png" />
+					</span>
+				</div>
+
+				<div class="menu">
+					<div class="list_icon">
+						<i class="pi pi-envelope" style="font-size: 24px ; color: white ; margin-right: 6px"></i>
+						<i class="pi pi-comments" style="font-size: 24px ; color: white ; margin-right: 6px"></i>
+						<i class="pi pi-user" style="font-size: 24px ; color: white ; margin-right: 6px"></i>
+					</div>
+				</div>
+
+				<div class="menu_icon">
+					<div>
+					  <p-menu (click)="go_sync()" #menu_2 [popup]="true" [model]="items_sync"></p-menu>
+					   <a (click)="menu_2.toggle($event)" *ngIf = "color_icon"> <i *ngIf = "color_icon == '#21b799' " class="fas fa-sync" style="color : #21b799 ;font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" ></i>
+					  <i *ngIf = "color_icon == '#e6db10' " class="fas fa-sync" style="color : #e6db10 ;font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" ></i>
+					  <i *ngIf = "color_icon == '#b72121' " class="fas fa-sync" style="color : #b72121 ;font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" ></i>
+					  <i *ngIf = "color_icon == 'transparent' " class="fas fa-sync" style="color : transparent ;font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" ></i></a>
+					</div>
+					<div>
+					  <p-menu (click)="Deconnexion()" #menu [popup]="true" [model]="itemes"></p-menu>
+					  <a (click)="menu.toggle($event)"> <i class="fas fa-bars" style=" color: white; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i></a>
+					</div>
+				  </div>
+			</div>
+			<!-- HEAD -->
+
+			<div class="body">
+
+				<div class="title_body">
+					<h3>
+						<i (click)="open_fiche_client()" class="fas fa-arrow-left"
+							style="font-size: 18px ; color: #21B799"></i> {{data_cli.name}}
+					</h3>
+				</div>
+
+				<div class="btn_nw_cr">
+					<button pButton type="submit" label="SAUVEGARDER" (click)="save_edit()"
+						class="bt ui-button-success"></button>
+					<button pButton type="button" label="Annuler"  class="bt ui-button-secondary"
+						(click)="abort_edit_client()"></button>
+				</div>
+				<div class="breacumb2 ui-g">
+					<div class="ui-g-4 dropdownworkflow">
+
+					</div>
+
+					<div class="ui-g-8 dropdownworkflow noCLick">
+							<p class="etat3">{{client_detail.state_id}}</p>
+						</div>
+
+				</div>
+
+				<div *ngIf="condition" class="archive  ui-g">
+					<div class="ui-g-7"></div>
+					<div  class="div_btn ui-g-5">
+						<!-- <button pButton type="button" icon="pi pi-folder" iconPos="left" label="ARCHIVER"  class="bt ui-button-danger"></button> -->
+						<!--   <ul class="CustomArchive">
+					<li (click)="ConvertStatut(etat)">
+					  <i class="pi pi-folder"></i>
+						  {{etat}}
+					</li>
+				  </ul>-->
+					</div>
+				</div>
+
+				<div class="photo  ui-g">
+					<div class="ui-g-9">
+						<div class="cam" *ngIf="!client_detail.photo_uri"> <i class="pi pi-camera"
+							style="font-size: 100px ; color: gray"></i> <br />
+							<div class="del_mod">
+									<button pButton type="button" icon="pi pi-pencil" iconPos="center"
+										class="ui-button-success" (click)="showImageFromCamera()"></button>
+									<button pButton type="button" icon="pi pi-trash" iconPos="center"
+										class="ui-button-danger" (click)="removeImage()"></button>
+								</div>
+						
+						</div>
+						<div class="cam" *ngIf="client_detail.photo_uri" [style.background]="'url('+ client_detail.photo_uri +')'"
+							class="contentAvatar">
+						
+							<div class="del_mod">
+								<button pButton type="button" icon="pi pi-pencil" iconPos="center" 
+									class="ui-button-success" (click)="showImageFromCamera()"></button>
+								<button pButton type="button" icon="pi pi-trash" iconPos="center" 
+									class="ui-button-danger" (click)="removeImage()"></button>
+							</div>
+								
+						</div>
+						
+						<h2 class="DataCLI">{{data_cli.name}}</h2>
+					</div>
+
+
+					<div *ngIf="client_detail.active == 1" class="box ui-g-3">
+						<div class="ribbon ribbon-top-right"><span class="ribbon_green">ACTIF</span></div>
+					</div>
+
+					<div *ngIf="client_detail.active == 0" class="box ui-g-3">
+						<div class="ribbon ribbon-top-right"><span class="ribbon_red">INACTIF</span></div>
+					</div>
+
+
+				</div>
+
+
+				<div class="form">
+					<form [formGroup]="fiche_client" (ngSubmit)="save_edit()">
+						<div class="form_inside">
+
+
+							<div class="form_item">
+								<!--Organisation Commerciale-->
+								<h3>Organisation Commerciale</h3>
+
+								<ion-item>
+									<ion-label position="floating">Région</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.region_id" [value]="data_cli.region_id"
+										formControlName="region_id" (ionCancel)="cancel('region_id')"
+										(ionChange)="regionChange($event.detail.value)">
+										<ion-select-option *ngFor="let region of i_t_region" [value]="region.id">
+											{{region.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Agence</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.agence_id" [value]="data_cli.agence_id"
+										formControlName="agence_id" (ionCancel)="cancel('agence_id')"
+										(ionChange)="agenceChange($event.detail.value)">
+										<ion-select-option *ngFor="let agence of i_t_agence_filtered"
+											[value]="agence.id"> {{agence.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<!--<ion-item>
+					<ion-label position="floating">Zone</ion-label>
+					<ion-select okText="Valider" cancelText="Annuler" [(ngModel)] = "data_cli.zone_id" [value]="data_cli.zone_id" formControlName= "zone_id" (ionCancel) = "cancel('zone_id')" (ionChange)="zoneChange($event.detail.value)">
+					  <ion-select-option *ngFor = "let zone of i_t_zone_filtered" [value] = "zone.id" > {{zone.name}}</ion-select-option>
+					</ion-select>
+				  </ion-item> -->
+
+								<ion-item>
+									<ion-label position="floating">Secteur</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.secteur_id" [value]="data_cli.secteur_id"
+										formControlName="secteur_id">
+										<ion-select-option *ngFor="let secteur of i_t_secteur_filtered"
+											[value]="secteur.id"> {{secteur.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<!--Organisation Commerciale-->
+							</div>
+
+
+							<div class="form_item">
+								<!--Coordonnées du point de vente-->
+								<h3>Coordonnées du point de vente</h3>
+
+								<input type="hidden" [(ngModel)]="data_cli.photo" [value]="data_cli.photo"
+								formControlName="photo" >
+
+								<ion-item>
+									<ion-label position="floating">Nom du PDV</ion-label>
+									<ion-input [(ngModel)]="data_cli.nom_pos" [value]="data_cli.nom_pos"
+										formControlName="nom_pos" type="text"> </ion-input>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Nom du Gérant</ion-label>
+									<ion-input [(ngModel)]="data_cli.nom_gerant" [value]="data_cli.nom_gerant"
+										formControlName="nom_gerant" type="text"> </ion-input>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Adresse</ion-label>
+									<ion-input [(ngModel)]="data_cli.adresse" [value]="data_cli.adresse"
+										formControlName="adresse" type="text"> </ion-input>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Repère</ion-label>
+									<ion-input [(ngModel)]="data_cli.repere" [value]="data_cli.repere"
+										formControlName="repere" type="text"> </ion-input>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Quartier</ion-label>
+									<ion-input [(ngModel)]="data_cli.quartier" [value]="data_cli.quartier"
+										formControlName="quartier" type="text"> </ion-input>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Ville</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.ville_id" [value]="data_cli.ville_id"
+										formControlName="ville_id" (ionCancel)="cancel('ville_id')">
+										<ion-select-option *ngFor="let ville of i_t_ville" [value]="ville.id">
+											{{ville.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">N° de téléphone 1</ion-label>
+									<ion-input [(ngModel)]="data_cli.numero_telephone1"
+										[value]="data_cli.numero_telephone1" formControlName="numero_telephone1"
+										type="text"> </ion-input>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">N° de téléphone 2</ion-label>
+									<ion-input [(ngModel)]="data_cli.numero_telephone2"
+										[value]="data_cli.numero_telephone2" formControlName="numero_telephone2"
+										type="text"> </ion-input>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">N° de téléphone 3</ion-label>
+									<ion-input [(ngModel)]="data_cli.numero_telephone3"
+										[value]="data_cli.numero_telephone3" formControlName="numero_telephone3"
+										type="text"> </ion-input>
+								</ion-item>
+
+								<!--Coordonnées du point de vente-->
+							</div>
+
+							<div class="form_item">
+								<!--Coordonnées complémentaires du Point de Vente-->
+								<h3>Coordonnées complémentaires du Point de Vente</h3>
+
+								<ion-item>
+									<ion-label position="floating">Emplacement</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.emplacement_id" [value]="data_cli.emplacement_id"
+										formControlName="emplacement_id" (ionCancel)="cancel('emplacement_id')">
+										<ion-select-option *ngFor="let emplacement of i_t_emplacement"
+											[value]="emplacement.id"> {{emplacement.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Proximité</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.proximite_id" [value]="data_cli.proximite_id"
+										formControlName="proximite_id" (ionCancel)="cancel('proximite_id')">
+										<ion-select-option *ngFor="let proximite of i_t_proximite"
+											[value]="proximite.id"> {{proximite.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Type Quartier</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.type_quartier_id"
+										[value]="data_cli.type_quartier_id" formControlName="type_quartier_id"
+										(ionCancel)="cancel('type_quartier_id')">
+										<ion-select-option *ngFor="let type_qurtier of i_t_type_quartier"
+											[value]="type_qurtier.id"> {{type_qurtier.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<div class="gps">
+									<button type="button" (click)="getMyLocation()"
+										style="padding: 5px 10px;margin-top: 10px;"><i class="fas fa-map-marker-alt"
+											style="font-size: 18px ; color: red;margin-right: 10px;"></i>Récuperer ma
+										position</button>
+									<p>Coordonnées GPS Latitude : <ion-input [(ngModel)]="data_cli.provider_latitude"
+											[value]="data_cli.provider_latitude" formControlName="provider_latitude"
+											type="text" disabled> </ion-input>
+									</p>
+									<p>Coordonnées GPS Longitude : <ion-input [(ngModel)]="data_cli.provider_longitude"
+											[value]="data_cli.provider_longitude" formControlName="provider_longitude"
+											type="text" disabled> </ion-input>
+									</p>
+								</div>
+
+
+								<!--Coordonnées complémentaires du Poin de Vente-->
+							</div>
+
+
+							<div class="form_item">
+								<!--Typologie de Point de Vente-->
+								<h3>Typologie de Point de Vente</h3>
+
+								<ion-item>
+									<ion-label position="floating">Type Client</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.type_client_id" [value]="data_cli.type_client_id"
+										formControlName="type_client_id" (ionCancel)="cancel('type_client_id')">
+										<ion-select-option *ngFor="let type_client of i_t_type_client"
+											[value]="type_client.id"> {{type_client.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Activité PDV</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" formControlName="activite_pos_id" [(ngModel)]="data_cli.activite_pos_id"
+										(ionChange)="activite_pos_Change($event.detail.value)">
+										<ion-select-option *ngFor="let activite_pos of i_t_activite_pos"
+											[value]="activite_pos.id">
+											{{activite_pos.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<ion-item *ngIf="canal_result">
+									<div *ngIf="canal_result.id">
+										<ion-label>Canal</ion-label>
+										<ion-input disabled [value]="canal_result.name"></ion-input>
+									</div>
+
+								</ion-item>
+
+								<!-- 
+						<ion-item *ngIf = "canal">
+							<ion-label position="floating">Canal</ion-label>
+							<ion-input [(ngModel)] = "canal.name" [value]="canal.id" formControlName= "canal_id" type="text"></ion-input>
+						</ion-item> 
+					-->
+
+								<ion-item>
+									<ion-label position="floating">Enseigne d'appartenance</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.enseigne_appartenance_id"
+										[value]="data_cli.enseigne_appartenance_id"
+										formControlName="enseigne_appartenance_id"
+										(ionCancel)="cancel('enseigne_appartenance_id')">
+										<ion-select-option
+											*ngFor="let enseigne_appartenance of i_t_enseigne_appartenance"
+											[value]="enseigne_appartenance.id"> {{enseigne_appartenance.name}}
+										</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<div class="ui-g">
+									<div class="ui-g-6">
+										<ion-item>
+											<ion-label position="floating">Classification 1</ion-label>
+											<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.classification1_id"
+												[value]="data_cli.classification1_id"
+												formControlName="classification1_id"
+												(ionCancel)="cancel('classification1_id')">
+												<ion-select-option *ngFor="let classification1 of i_t_classification1"
+													[value]="classification1.id"> {{classification1.name}}
+												</ion-select-option>
+											</ion-select>
+										</ion-item>
+									</div>
+
+									<div class="ui-g-6">
+										<ion-item>
+											<ion-label position="floating">Classification 2</ion-label>
+											<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.classification2_id"
+												[value]="data_cli.classification2_id"
+												formControlName="classification2_id"
+												(ionCancel)="cancel('classification2_id')">
+												<ion-select-option *ngFor="let classification2 of i_t_classification2"
+													[value]="classification2.id"> {{classification2.name}}
+												</ion-select-option>
+											</ion-select>
+										</ion-item>
+									</div>
+								</div>
+
+
+
+
+
+
+								<!--Typologie de Point de Vente-->
+							</div>
+
+							<div class="form_item">
+								<!--Couverture commerciale-->
+								<h3>Couverture commerciale</h3>
+
+								<ion-item>
+									<ion-label position="floating">Couverture commerciale</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.couverture_commerciale_id"
+										[value]="data_cli.couverture_commerciale_id"
+										formControlName="couverture_commerciale_id"
+										(ionCancel)="cancel('couverture_commerciale_id')">
+										<ion-select-option
+											*ngFor="let couverture_commerciale of i_t_couverture_commerciale"
+											[value]="couverture_commerciale.id"> {{couverture_commerciale.name}}
+										</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<ion-item>
+									<ion-label position="floating">Fréquence de visite</ion-label>
+									<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.frequence_visite_id"
+										[value]="data_cli.frequence_visite_id" formControlName="frequence_visite_id"
+										(ionCancel)="cancel('frequence_visite_id')">
+										<ion-select-option *ngFor="let frequence_visite of i_t_frequence_visite"
+											[value]="frequence_visite.id"> {{frequence_visite.name}}</ion-select-option>
+									</ion-select>
+								</ion-item>
+
+								<!--Couverture commerciale-->
+							</div>
+
+
+
+							<!--ZAVATRA MITSIVALANA-->
+							<p-tabView>
+
+								<p-tabPanel header="AGENTS COMMERCIAUX">
+
+									<ion-item>
+										<tag-input [ngModel]="client_detail.cnc_login" formControlName="user_id"
+											[onlyFromAutocomplete]="true" placeholder="Agents commerciaux"
+											disable="true">
+											<tag-input-dropdown [autocompleteItems]="res_user"
+												[showDropdownIfEmpty]="true"></tag-input-dropdown>
+										</tag-input>
+									</ion-item>
+								</p-tabPanel>
+
+								<p-tabPanel header="PERMANENT POSM">
+									<ion-item>
+										<ion-label position="floating">Cible installation présentoirs</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.cible_installation_presentoirs_id"
+											[value]="data_cli.cible_installation_presentoirs_id"
+											formControlName="cible_installation_presentoirs_id"
+											(ionCancel)="cancel('cible_installation_presentoirs_id')">
+											<ion-select-option
+												*ngFor="let cible_installation_presentoirs of i_t_cible_installation_presentoirs"
+												[value]="cible_installation_presentoirs.id">
+												{{cible_installation_presentoirs.name}}</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+									<ion-item>
+
+										<tag-input [ngModel]="client_detail.cnc_posm"
+											formControlName="permanent_POSM_id" [onlyFromAutocomplete]="true"
+											placeholder="Permanent POSM">
+											<tag-input-dropdown [autocompleteItems]="i_t_permanent_posm"
+												[showDropdownIfEmpty]="true">
+											</tag-input-dropdown>
+										</tag-input>
+									</ion-item>
+
+
+								</p-tabPanel>
+
+								<p-tabPanel header="CONTRAT">
+
+									<ion-item>
+										<ion-label position="floating">Contrat</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.contrat_id" [value]="data_cli.contrat_id"
+											formControlName="contrat_id" (ionCancel)="cancel('contrat_id')"
+											> <!--(ionChange)="Contrat_date($event)"-->
+											<ion-select-option *ngFor="let contrat of i_t_contrat" [value]="contrat.id">
+												{{contrat.name}}</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+									<ion-item>
+										<ion-label position="floating">Date debut contrat</ion-label>
+										<ion-datetime [(ngModel)]="client_detail.date_debut_contrat"
+											[placeholder]="client_detail.date_debut_contrat"
+											formControlName="date_debut_contrat" display-format="YYYY-MM-DD"
+											picker-format="YYYY-MM-DD"></ion-datetime>
+									</ion-item>
+									<ion-item>
+										<ion-label position="floating">Date debut contrat</ion-label>
+										<ion-datetime [(ngModel)]="client_detail.date_fin_contrat"
+											[placeholder]="client_detail.date_fin_contrat"
+											formControlName="date_fin_contrat" display-format="YYYY-MM-DD"
+											picker-format="YYYY-MM-DD"></ion-datetime>
+									</ion-item>
+								</p-tabPanel>
+
+								<p-tabPanel header="ACTIVATION">
+									<ion-item>
+										<ion-label position="floating">Coopération ITG</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.cooperation_itg_id"
+											[value]="data_cli.cooperation_itg_id" formControlName="cooperation_itg_id"
+											(ionCancel)="cancel('cooperation_itg_id')">
+											<ion-select-option *ngFor="let cooperation_itg of i_t_cooperation_itg"
+												[value]="cooperation_itg.id"> {{cooperation_itg.name}}
+											</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+									<ion-item>
+										<ion-label position="floating">Cible Activation</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.cible_activation_id"
+											[value]="data_cli.cible_activation_id" formControlName="cible_activation_id"
+											(ionCancel)="cancel('cible_activation_id')">
+											<ion-select-option *ngFor="let cible_activation of i_t_cible_activation"
+												[value]="cible_activation.id"> {{cible_activation.name}}
+											</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+									<ion-item>
+										<ion-label position="floating">Activation autorisée</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.activation_autorisee_id"
+											[value]="data_cli.activation_autorisee_id"
+											formControlName="activation_autorisee_id"
+											(ionCancel)="cancel('activation_autorisee_id')">
+											<ion-select-option
+												*ngFor="let activation_autorisee of i_t_activation_autorisee"
+												[value]="activation_autorisee.id"> {{activation_autorisee.name}}
+											</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+									<ion-item>
+										<ion-label position="floating">Préférence animateur</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.preference_animateur_id"
+											[value]="data_cli.preference_animateur_id"
+											formControlName="preference_animateur_id"
+											(ionCancel)="cancel('preference_animateur_id')">
+											<ion-select-option
+												*ngFor="let preference_animateur of i_t_preference_animateur"
+												[value]="preference_animateur.id"> {{preference_animateur.name}}
+											</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+								</p-tabPanel>
+
+								<p-tabPanel header="APPROVISIONNEMENT">
+									<ion-item>
+										<ion-label position="floating">Fréquence d'approvisionnement</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.frequence_approvisionnement_id"
+											[value]="data_cli.frequence_approvisionnement_id"
+											formControlName="frequence_approvisionnement_id"
+											(ionCancel)="cancel('frequence_approvisionnement_id')">
+											<ion-select-option
+												*ngFor="let frequence_appro of i_t_frequence_approvisionnement"
+												[value]="frequence_appro.id"> {{frequence_appro.name}}
+											</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+									<div>
+										<h6>Source d'approvisionnement</h6>
+										<p-autoComplete [placeholder]="client_detail.new_source_approvisionnement" class = "atc" formControlName="new_source_approvisionnement_id" [suggestions]="filteredSourceAppro"
+										  (completeMethod)="filterSourceAppro($event)" field="name" [size]="50" [minLength]="1" appendTo = "body">
+										</p-autoComplete>
+									  </div>
+					  
+									  <div>
+										<h6>Fournisseur principal</h6>
+										<p-autoComplete [placeholder]="client_detail.new_fournisseur_principal" class = "atc" formControlName="new_fournisseur_principal_id" [suggestions]="filteredfournisseur_principal"
+										  (completeMethod)="filterfournisseur_principal($event)" field="name" [size]="50" [minLength]="1" appendTo = "body">
+										</p-autoComplete>
+									  </div>
+					  
+									  <div>
+										<h6>Fournisseur secondaire</h6>
+										<p-autoComplete [placeholder]="client_detail.new_fournisseur_secondaire" class = "atc" formControlName="new_fournisseur_secondaire_id" [suggestions]="filteredfournisseur_secondaire"
+										  (completeMethod)="filterfournisseur_secondaire($event)" field="name" [size]="50" [minLength]="1" appendTo = "body">
+										</p-autoComplete>
+									  </div>
+
+									<!--<ion-item>
+										<ion-label position="floating">Source d'approvisionnement</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.new_source_approvisionnement_id"
+											[value]="data_cli.new_source_approvisionnement_id"
+											formControlName="new_source_approvisionnement_id"
+											(ionCancel)="cancel('source_approvisionnement_id')">
+											<ion-select-option *ngFor="let source_appro of i_t_source_approvisionnement"
+												[value]="source_appro.id"> {{source_appro.name}}</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+									<ion-item>
+										<ion-label position="floating">Fournisseur principal</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.new_fournisseur_principal_id"
+											[value]="data_cli.new_fournisseur_principal_id"
+											formControlName="new_fournisseur_principal_id"
+											(ionCancel)="cancel('fournisseur_principal_id')">
+											<ion-select-option
+												*ngFor="let fornisseur_principale of i_t_fournisseur_principale"
+												[value]="fornisseur_principale.id"> {{fornisseur_principale.name}}
+											</ion-select-option>
+										</ion-select>
+									</ion-item>
+
+									<ion-item>
+										<ion-label position="floating">Fournisseur secondaire</ion-label>
+										<ion-select okText="Valider" cancelText="Annuler" [(ngModel)]="data_cli.new_fournisseur_secondaire_id"
+											[value]="data_cli.new_fournisseur_secondaire_id"
+											formControlName="new_fournisseur_secondaire_id"
+											(ionCancel)="cancel('fournisseur_secondaire_id')">
+											<ion-select-option
+												*ngFor="let fournisseur_secondaire of i_t_fournisseur_secondaire"
+												[value]="fournisseur_secondaire.id"> {{fournisseur_secondaire.name}}
+											</ion-select-option>
+										</ion-select>
+									</ion-item> -->
+
+								</p-tabPanel>
+
+							</p-tabView>
+
+							<!--ZAVATRA MITSIVALANA-->
+
+
+							<!--Commentaire-->
+
+							<ion-item>
+								<ion-label position="floating">Commentaires</ion-label>
+								<ion-textarea [(ngModel)]="data_cli.commentaire" [value]="data_cli.commentaire"
+									formControlName="commentaire"></ion-textarea>
+							</ion-item>
+
+							<!--Commentaire-->
+
+
+						</div>
+
+					</form>
+				</div>
+
+
+
+			</div>
+
+			<div class="footer"></div>
+		</div>
+	</div>
+
+	<p-dialog [(visible)]="display" [modal]="true" [responsive]="true" styleClass="mydialog" appendTo="body">
+		<ion-img [src]="client_detail.photo_uri"></ion-img>
+	</p-dialog>
+
+
+
+
+</ion-content>
+<!--EDIT-->

@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/ngx-formly-material-select.umd.js",
+  "module": "../fesm5/ngx-formly-material-select.js",
+  "es2015": "../fesm2015/ngx-formly-material-select.js",
+  "esm5": "../esm5/select/ngx-formly-material-select.js",
+  "esm2015": "../esm2015/select/ngx-formly-material-select.js",
+  "fesm5": "../fesm5/ngx-formly-material-select.js",
+  "fesm2015": "../fesm2015/ngx-formly-material-select.js",
+  "typings": "ngx-formly-material-select.d.ts",
+  "metadata": "ngx-formly-material-select.metadata.json",
+  "sideEffects": false,
+  "name": "@ngx-formly/material/select"
+}

@@ -1,0 +1,17 @@
+[
+    {
+        "create_uid" : 1, 
+        "name" : "Autre", 
+        "write_uid" : 1
+    }, 
+    {
+        "create_uid" : 2, 
+        "name" : "Loisirs nocturnes", 
+        "write_uid" : 2
+    }, 
+    {
+        "create_uid" : 3, 
+        "name" : "Zone touristique", 
+        "write_uid" : 3
+    }
+]

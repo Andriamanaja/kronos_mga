@@ -1,0 +1,8 @@
+[
+    {
+        "id" : 1,
+        "name" : "manaja",
+        "login" : "manaja",
+        "password_crypt" : "manaja"
+    }
+]

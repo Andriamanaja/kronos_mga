@@ -1,0 +1,47 @@
+[
+    {
+      "id": 1,
+      "create_uid": 1,
+      "create_date": "2019-06-06 06:38:02",
+      "name": "Respect planogramme",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:02",
+      "active": true
+    },
+    {
+      "id": 2,
+      "create_uid": 1,
+      "create_date": "2019-06-06 06:38:08",
+      "name": "Stock minimum",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:24",
+      "active": true
+    },
+    {
+      "id": 3,
+      "create_uid": 1,
+      "create_date": "2019-06-06 06:38:30",
+      "name": "Présence visuel PLV",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:38:47",
+      "active": true
+    },
+    {
+      "id": 4,
+      "create_uid": 1,
+      "create_date": "2019-06-06 06:38:49",
+      "name": "Respect nombre de facings",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:39:12",
+      "active": true
+    },
+    {
+      "id": 5,
+      "create_uid": 1,
+      "create_date": "2019-06-06 06:39:14",
+      "name": "Allumage du présentoir",
+      "write_uid": 1,
+      "write_date": "2019-06-06 06:39:37",
+      "active": true
+    }
+  ]

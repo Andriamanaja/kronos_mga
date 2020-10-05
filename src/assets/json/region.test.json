@@ -1,0 +1,26 @@
+[
+    {
+        "create_uid" : 1, 
+        "code" : "Al", 
+        "name" : "region_1", 
+        "write_uid" : 1 
+    } ,
+    {
+        "create_uid" : 2, 
+        "code" : "Bt", 
+        "name" : "region_2", 
+        "write_uid" : 2
+    } ,
+    {
+        "create_uid" : 3, 
+        "code" : "MtA", 
+        "name" : "region_3", 
+        "write_uid" : 3 
+    } ,
+    {
+        "create_uid" : 4, 
+        "code" : "Anl", 
+        "name" : "region_4", 
+        "write_uid" : 4
+    }
+]

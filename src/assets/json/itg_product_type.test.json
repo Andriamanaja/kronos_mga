@@ -1,0 +1,38 @@
+[
+    {
+      "id": 1,
+      "create_uid": 1,
+      "code": "for_sale",
+      "create_date": "2019-04-26 11:48:44",
+      "name": "En vente",
+      "write_uid": 1,
+      "write_date": "2019-06-19 08:56:07"
+    },
+    {
+      "id": 2,
+      "create_uid": 1,
+      "code": "promo",
+      "create_date": "2019-04-26 11:48:44",
+      "name": "Promo",
+      "write_uid": 1,
+      "write_date": "2019-06-19 08:56:07"
+    },
+    {
+      "id": 3,
+      "create_uid": 1,
+      "code": "plv",
+      "create_date": "2019-04-26 11:48:44",
+      "name": "PLV",
+      "write_uid": 1,
+      "write_date": "2019-06-19 08:56:07"
+    },
+    {
+      "id": 4,
+      "create_uid": 1,
+      "code": "incentive",
+      "create_date": "2019-04-26 11:48:44",
+      "name": "Incentive",
+      "write_uid": 1,
+      "write_date": "2019-06-19 08:56:07"
+    }
+  ]

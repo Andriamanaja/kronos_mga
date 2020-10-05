@@ -1,0 +1,572 @@
+<ion-content>
+  <div class="container">
+
+    <p-toast [style]="{marginTop: '80px'}" position="top-right" key="invalid"></p-toast>
+
+    <!-- HEAD -->
+    <div class="head">
+      <div class="back_button">
+        <span>
+          <img (click)="open_menu()" src="../../../assets/image/logo_itg.png" />
+        </span>
+      </div>
+
+      <div class="menu">
+        <div class="list_icon">
+          <i class="fas fa-at"
+            style="color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+          <i class="fas fa-comments"
+            style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+          <i class="fas fa-ban on fa-camera"
+            style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+        </div>
+      </div>
+
+       <app-head></app-head>
+      
+    </div>
+    <!-- HEAD -->
+
+    <div class="body">
+
+      <div class="title_body">
+        <h3>
+          <div class="ui-g">
+            <div (click)="open_fiche_client()" class="ui-g-1">
+              <i class="fas fa-arrow-left" style="font-size: 18px ; color: #21B799"> </i>
+            </div>
+            <div class="ui-g-11">
+              <h3> Nouveau </h3>
+            </div>
+          </div>
+        </h3>
+      </div>
+
+      <div class="btn_nw_cr">
+        <button [disabled]="disable_save" pButton type="submit" label="SAUVEGARDER" class="bt ui-button-success"
+          (click)="save_new_client()"></button>
+        <button pButton type="button" label="ANNULER" class="bt ui-button-secondary"
+          (click)="open_fiche_client()"></button>
+        <div *ngIf="loadIndicator" class="loadIndicator">
+          <ion-spinner name="dots"></ion-spinner>
+        </div>
+      </div>
+
+
+      <div class="breacumb ui-g">
+
+        <div class="ui-g-4 dropdownworkflow">
+          <!-- <button pButton type="button" label="VALIDÉE PAR SUPERVISEUR"  class="bt ui-button-secondary"></button> 
+           <p-dropdown [options]="itemsActions" [(ngModel)]="selectedAction" placeholder="ACTION" optionLabel="label"
+             [showClear]="true"></p-dropdown> -->
+        </div>
+
+
+        <div class="ui-g-8 dropdownworkflow noCLick">
+          <!-- <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb> -->
+          <p-dropdown [options]="items" [(ngModel)]="selectedWorkFlow" placeholder="PROSPECT" optionLabel="label"
+            [showClear]="true"></p-dropdown>
+        </div>
+
+      </div>
+
+      <div class="archive  ui-g">
+        <div class="ui-g-7">
+
+        </div>
+
+        <!-- <div class="div_btn ui-g-5">
+                  <button pButton type="button" icon="pi pi-folder" iconPos="left" label="ARCHIVER"  class="bt ui-button-danger"></button> -->
+        <!--<ul class="CustomArchive">
+                   <li *ngIf="active == 0" (click)="ConvertStatut(1)">
+                     <i class="pi pi-folder"></i>
+                     Actif
+                   </li>
+                   <li *ngIf="active == 1" (click)="ConvertStatut(0)">
+                     <i class="pi pi-folder"></i>
+                     Inactif
+                   </li>
+                 </ul>
+             </div>-->
+      </div>
+
+      <div class="photo  ui-g">
+        <div class="ui-g-9">
+
+        </div>
+
+        <div class="cam ui-g-3">
+          <div *ngIf="!filePath"> <i class="pi pi-camera" style="font-size: 100px ; color: gray"></i> <br /></div>
+          <div *ngIf="filePath" [style.background]="'url('+ filePath +')'" [style.background-size]="cover"
+            class="contentAvatar" (click)="open_full_screen()"></div>
+          <div class="del_mod_btn">
+            <button pButton type="button" icon="pi pi-pencil" iconPos="center" class="bt ui-button-success"
+              (click)="showImageFromCamera()"></button>
+            <button pButton type="button" icon="pi pi-trash" iconPos="center" class="bt ui-button-danger"
+              (click)="remove_image()"></button>
+          </div>
+        </div>
+
+
+        <!-- <div class="cam ui-g-3" *ngIf = "!filePath" >
+               <i class="pi pi-camera" style="font-size: 78px ; color: gray" (click)="showImageFromCamera()"></i> <br />
+             </div> -->
+      </div>
+
+
+      <div class="form">
+        <form [formGroup]="fiche_client" (ngSubmit)="save_new_client()">
+          <div class="form_inside">
+
+
+            <div class="form_item">
+              <!--Organisation Commerciale-->
+              <h3>Organisation Commerciale</h3>
+
+              <div style="display: none;">
+
+
+              </div>
+
+              <ion-item>
+                <ion-label>Région</ion-label>
+                <ion-note slot="end" color="primary" style="font-size:medium; color: gray; font-weight: bold; ">
+                  {{my_region}}</ion-note>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Agence</ion-label>
+                <ion-note slot="end" color="primary" style="font-size:medium; color: gray; ; font-weight: bold; ">
+                  {{my_agence}}</ion-note>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Secteur</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"(ionChange)="secteurChange($event.detail.value)" [(ngModel)]="i_t_secteur_selected"
+                  [value]="i_t_secteur_selected" formControlName="secteur_id">
+                  <ion-select-option *ngFor="let secteur of i_t_secteur" [value]="secteur.id"> {{secteur.name}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <!--Organisation Commerciale-->
+            </div>
+
+
+            <div class="form_item">
+              <!--Coordonnées du point de vente-->
+              <h3>Coordonnées du point de vente</h3>
+
+              <ion-item>
+                <ion-label position="floating">Nom du PDV</ion-label>
+                <ion-input formControlName="nom_pos" type="text"> </ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Nom du Gérant</ion-label>
+                <ion-input formControlName="nom_gerant" type="text"> </ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Adresse</ion-label>
+                <ion-input formControlName="adresse" type="text"> </ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Repère</ion-label>
+                <ion-input formControlName="repere" type="text"> </ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Quartier</ion-label>
+                <ion-input formControlName="quartier" type="text"> </ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Ville</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="ville_id">
+                  <ion-select-option *ngFor="let ville of i_t_ville" [value]="ville.id"> {{ville.name}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">N° de téléphone 1</ion-label>
+                <ion-input formControlName="numero_telephone1" type="text"> </ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">N° de téléphone 2</ion-label>
+                <ion-input formControlName="numero_telephone2" type="text"> </ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">N° de téléphone 3</ion-label>
+                <ion-input formControlName="numero_telephone3" type="text"> </ion-input>
+              </ion-item>
+
+              <!--Coordonnées du point de vente-->
+            </div>
+
+            <div class="form_item">
+              <!--Coordonnées complémentaire du Point de Vente-->
+              <h3>Coordonnées complémentaire du Point de Vente</h3>
+
+              <ion-item>
+                <ion-label position="floating">Emplacement</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="emplacement_id">
+                  <ion-select-option *ngFor="let emplacement of i_t_emplacement" [value]="emplacement.id">
+                    {{emplacement.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Proximité</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="proximite_id">
+                  <ion-select-option *ngFor="let proximite of i_t_proximite" [value]="proximite.id"> {{proximite.name}}
+                  </ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Type de quartier</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="type_quartier_id">
+                  <ion-select-option *ngFor="let type_qurtier of i_t_type_quartier" [value]="type_qurtier.id">
+                    {{type_qurtier.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <div class="gps">
+                <button type="button" (click)="getMyLocation()" style="padding: 5px 10px;margin-top: 10px;"><i
+                    class="fas fa-map-marker-alt" style="font-size: 18px ; color: red;margin-right: 10px;"></i>Récuperer
+                  ma position</button>
+                <p>Coordonnées GPS Latitude : <ion-input formControlName="provider_latitude" type="text"> </ion-input>
+                </p>
+                <p>Coordonnées GPS Longitude : <ion-input formControlName="provider_longitude" type="text"> </ion-input>
+                </p>
+              </div>
+
+
+              <!--Coordonnées complémentaire du Poin de Vente-->
+            </div>
+
+
+            <div class="form_item">
+              <!--Typologie de Point de Vente-->
+              <h3>Typologie de Point de Vente</h3>
+
+              <ion-item>
+                <ion-label position="floating">Type Client</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="type_client_id">
+                  <ion-select-option *ngFor="let type_client of i_t_type_client" [value]="type_client.id">
+                    {{type_client.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Activité PDV</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="activite_pos_id" (ionChange)="activite_pos_Change($event.detail.value)">
+                  <ion-select-option *ngFor="let activite_pos of i_t_activite_pos" [value]="activite_pos.id">
+                    {{activite_pos.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item *ngIf="canal_result">
+                <div *ngIf="canal_result.id">
+                  <ion-label>Canal</ion-label>
+                  <ion-input disabled [value]="canal_result.name"></ion-input>
+                </div>
+
+              </ion-item>
+
+
+              <ion-item>
+                <ion-label position="floating">Enseigne d'appartenance</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="enseigne_appartenance_id">
+                  <ion-select-option *ngFor="let enseigne_appartenance of i_t_enseigne_appartenance"
+                    [value]="enseigne_appartenance.id"> {{enseigne_appartenance.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Classification 1</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="classification1_id">
+                  <ion-select-option *ngFor="let classification1 of i_t_classification1" [value]="classification1.id">
+                    {{classification1.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Classification 2</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="classification2_id">
+                  <ion-select-option *ngFor="let classification2 of i_t_classification2" [value]="classification2.id">
+                    {{classification2.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+
+              <!--Typologie de Point de Vente-->
+            </div>
+
+            <div class="form_item">
+              <!--Couverture commerciale-->
+              <h3>Couverture commerciale</h3>
+
+              <ion-item>
+                <ion-label position="floating">Couverture commerciale</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="couverture_commerciale_id">
+                  <ion-select-option *ngFor="let couverture_commerciale of i_t_couverture_commerciale"
+                    [value]="couverture_commerciale.id"> {{couverture_commerciale.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <ion-label position="floating">Fréquence de visite</ion-label>
+                <ion-select okText="Valider" cancelText="Annuler"formControlName="frequence_visite_id">
+                  <ion-select-option *ngFor="let frequence_visite of i_t_frequence_visite"
+                    [value]="frequence_visite.id"> {{frequence_visite.name}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <!--Couverture commerciale-->
+            </div>
+
+
+
+            <!--ZAVATRA MITSIVALANA-->
+            <p-tabView>
+
+              <p-tabPanel header="AGENTS COMMERCIAUX">
+                <ion-item>
+                  <tag-input formControlName="user_id" [onlyFromAutocomplete]="true" placeholder="User"
+                    [ngModel]=users_same_secteur disable="true">
+                    <tag-input-dropdown [autocompleteItems]="users_same_secteur" [showDropdownIfEmpty]="true"
+                      [dynamicUpdate]="false"> </tag-input-dropdown>
+                  </tag-input>
+                </ion-item>
+
+              </p-tabPanel>
+
+              <p-tabPanel header="PERMANENT POSM">
+
+
+
+                <ion-item>
+                  <ion-label position="floating">Cible installation présentoirs</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="cible_installation_presentoirs_id">
+                    <ion-select-option *ngFor="let cible_installation_presentoirs of i_t_cible_installation_presentoirs"
+                      [value]="cible_installation_presentoirs.id"> {{cible_installation_presentoirs.name}}
+                    </ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+                <ion-item>
+                  <!--<ion-label position="floating">Permanent POSM</ion-label>
+                           <ion-select okText="Valider" cancelText="Annuler" formControlName= "permanent_POSM_id" multiple="true">
+                             <ion-select-option *ngFor = "let posm1 of i_t_permanent_posm" [value] = "posm1.value" > {{posm1.label}}</ion-select-option>
+                           </ion-select> -->
+                  <tag-input formControlName="permanent_POSM_id" [onlyFromAutocomplete]="true"
+                    placeholder="Permanent POSM">
+                    <tag-input-dropdown [autocompleteItems]="i_t_permanent_posm" [showDropdownIfEmpty]="true"
+                      [dynamicUpdate]="false"> </tag-input-dropdown>
+                  </tag-input>
+                </ion-item>
+
+                <!--<mat-form-field class="example-chip-list">
+                     <mat-chip-list #chipList aria-label="posm selection">
+                       <mat-chip *ngFor="let posm of posms" [selectable]="selectable" [removable]="removable" (removed)="remove(posm)"> {{posm.name}}
+                         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                       </mat-chip>
+                       <input placeholder="Permanent POSM" #fruitInput formControlName="permanent_POSM_id" [matAutocomplete]="auto" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)">
+                     </mat-chip-list>
+ 
+                     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                       <mat-option *ngFor="let posm of filteredPosm | async" [value]="posm.id">
+                         {{posm.name}}
+                       </mat-option>
+                     </mat-autocomplete>
+                   </mat-form-field> -->
+
+                <!--
+                       <ion-item>
+                           <ion-label position="floating">Permanent POSM 2</ion-label>
+                           <ion-select okText="Valider" cancelText="Annuler" formControlName= "permanent_POSM2_id" >
+                             <ion-select-option *ngFor = "let posm2 of i_t_permanent_posm" [value] = "posm2.id" > {{posm2.name}}</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                     
+                       <ion-item>
+                           <ion-label position="floating">Permanent POSM 3</ion-label>
+                           <ion-select okText="Valider" cancelText="Annuler" formControlName= "permanent_POSM3_id" >
+                             <ion-select-option *ngFor = "let posm3 of i_t_permanent_posm" [value] = "posm3.id" > {{posm3.name}}</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                     
+                       <ion-item>
+                           <ion-label position="floating">Permanent POSM 4</ion-label>
+                           <ion-select okText="Valider" cancelText="Annuler" formControlName= "permanent_POSM4_id" >
+                             <ion-select-option *ngFor = "let posm4 of i_t_permanent_posm" [value] = "posm4.id" > {{posm4.name}}</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                     
+                       <ion-item>
+                           <ion-label position="floating">Permanent POSM 5</ion-label>
+                           <ion-select okText="Valider" cancelText="Annuler" formControlName= "permanent_POSM5_id" >
+                             <ion-select-option *ngFor = "let posm5 of i_t_permanent_posm" [value] = "posm5.id" > {{posm5.name}}</ion-select-option>
+                           </ion-select>
+                       </ion-item>
+                     -->
+
+
+              </p-tabPanel>
+
+              <p-tabPanel header="CONTRAT">
+
+                <ion-item>
+                  <ion-label position="floating">Contrat</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="contrat_id">
+                    <ion-select-option *ngFor="let contrat of i_t_contrat" [value]="contrat.id">
+                      {{contrat.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+
+                <ion-item>
+                  <ion-label position="floating">Date debut contrat</ion-label>
+                  <ion-datetime formControlName="date_debut_contrat" display-format="YYYY-MM-DD"
+                    picker-format="YYYY-MM-DD"></ion-datetime>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Date fin contrat</ion-label>
+                  <ion-datetime formControlName="date_fin_contrat" display-format="YYYY-MM-DD"
+                    picker-format="YYYY-MM-DD"></ion-datetime>
+                </ion-item>
+              </p-tabPanel>
+
+              <p-tabPanel header="ACTIVATION">
+                <ion-item>
+                  <ion-label position="floating">Coopération ITG</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="cooperation_itg_id">
+                    <ion-select-option *ngFor="let cooperation_itg of i_t_cooperation_itg" [value]="cooperation_itg.id">
+                      {{cooperation_itg.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Cible Activation</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="cible_activation_id">
+                    <ion-select-option *ngFor="let cible_activation of i_t_cible_activation" [value]="cible_activation.id">
+                      {{cible_activation.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Activation autorisée</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="activation_autorisee_id">
+                    <ion-select-option *ngFor="let activation_autorisee of i_t_activation_autorisee"
+                      [value]="activation_autorisee.id"> {{activation_autorisee.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Préférence animateur</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="preference_animateur_id">
+                    <ion-select-option *ngFor="let preference_animateur of i_t_preference_animateur"
+                      [value]="preference_animateur.id"> {{preference_animateur.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+              </p-tabPanel>
+
+              <p-tabPanel header="APPROVISIONNEMENT">
+                <ion-item>
+                  <ion-label position="floating">Fréquence d'approvisionnement</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="frequence_approvisionnement_id">
+                    <ion-select-option *ngFor="let frequence_appro of i_t_frequence_approvisionnement"
+                      [value]="frequence_appro.id"> {{frequence_appro.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+                <!--<ion-item>
+                  <ion-label position="floating">Source d'approvisionnement</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="new_source_approvisionnement_id">
+                    <ion-select-option *ngFor="let source_appro of i_t_source_approvisionnement"
+                      [value]="source_appro.id"> {{source_appro.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Fournisseur principal</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="new_fournisseur_principal_id">
+                    <ion-select-option *ngFor="let fornisseur_principale of i_t_fournisseur_principale"
+                      [value]="fornisseur_principale.id"> {{fornisseur_principale.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item>
+
+                <ion-item>
+                  <ion-label position="floating">Fournisseur secondaire</ion-label>
+                  <ion-select okText="Valider" cancelText="Annuler"formControlName="new_fournisseur_secondaire_id">
+                    <ion-select-option *ngFor="let fournisseur_secondaire of i_t_fournisseur_secondaire"
+                      [value]="fournisseur_secondaire.id"> {{fournisseur_secondaire.name}}</ion-select-option>
+                  </ion-select>
+                </ion-item> -->
+
+                <div>
+                  <h6>Source d'approvisionnement</h6>
+                  <p-autoComplete class = "atc" formControlName="new_source_approvisionnement_id" [suggestions]="filteredSourceAppro"
+                    (completeMethod)="filterSourceAppro($event)" field="name" [size]="50" [minLength]="1" appendTo = "body">
+                  </p-autoComplete>
+                </div>
+
+                <div>
+                  <h6>Fournisseur principal</h6>
+                  <p-autoComplete class = "atc" formControlName="new_fournisseur_principal_id" [suggestions]="filteredfournisseur_principal"
+                    (completeMethod)="filterfournisseur_principal($event)" field="name" [size]="50" [minLength]="1" appendTo = "body">
+                  </p-autoComplete>
+                </div>
+
+                <div>
+                  <h6>Fournisseur secondaire</h6>
+                  <p-autoComplete class = "atc" formControlName="new_fournisseur_secondaire_id" [suggestions]="filteredfournisseur_secondaire"
+                    (completeMethod)="filterfournisseur_secondaire($event)" field="name" [size]="50" [minLength]="1" appendTo = "body">
+                  </p-autoComplete>
+                </div>
+
+              </p-tabPanel>
+
+            </p-tabView>
+
+            <!--ZAVATRA MITSIVALANA-->
+
+
+            <!--Commentaire-->
+
+            <ion-item>
+              <ion-label position="floating">Commentaires</ion-label>
+              <ion-textarea formControlName="commentaire"></ion-textarea>
+            </ion-item>
+
+            <!--Commentaire-->
+
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="footer">
+
+    </div>
+  </div>
+
+  <p-dialog [(visible)]="display_2" [modal]="true" [responsive]="true" styleClass="mydialog" appendTo="body">
+    <ion-img [src]="filePath"> </ion-img>
+  </p-dialog>
+
+</ion-content>

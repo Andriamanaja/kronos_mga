@@ -1,0 +1,18 @@
+id	create_uid	begin_date	name	end_date	retailer_unit_sale_price	retailer_pqt_sale_price	grs_cost_price	tax_status_id	dmg_sale_price	write_uid	brand_id	create_date	dmg_cost_price	write_date	active	grs_sale_price	manufacturer_id	ref	product_type_code	product_type
+14	1	(null)	Gauloises CO	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	1	REF000014	(null)	1
+15	1	(null)	Good Look	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	1	REF000015	(null)	1
+16	1	(null)	Good Look Menthol	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	1	REF000016	(null)	1
+17	1	(null)	Mélia Blonde	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	1	REF000017	(null)	1
+18	1	(null)	Mélia Blue	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	1	REF000018	(null)	1
+19	1	(null)	P&S Blue	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	1	REF000019	(null)	1
+20	1	(null)	P&S Red	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	1	REF000020	(null)	1
+21	1	(null)	REVY	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	2	REF000021	(null)	1
+22	1	(null)	FSM	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	2	REF000022	(null)	1
+23	1	(null)	FST	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	2	REF000023	(null)	1
+24	1	(null)	JET	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	2	REF000024	(null)	1
+25	1	(null)	Marlboro FF	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	3	REF000025	(null)	1
+26	1	(null)	Winston FF	(null)	(null)	(null)	(null)	(null)	(null)	1	(null)	2019-05-20 13:58:56	(null)	2019-05-20 13:58:56	true	(null)	3	REF000026	(null)	1
+27	1	(null)	News	(null)	(null)	(null)	(null)	(null)	(null)	1	1	2019-05-21 07:32:38	(null)	2019-05-21 07:47:50	true	(null)	1	REF000027	for_sale	1
+28	1	(null)	Affiche 40X60 Good Look	(null)	0.0	0.0	0.0	(null)	0.0	1	(null)	2019-06-11 08:54:56	0.0	2019-06-11 08:54:56	true	0.0	(null)	REF000028	plv	3
+30	1	2019-06-11	Ramasse Monnaie Mélia	2020-05-07	0.0	0.0	0.0	122	0.0	1	1	2019-06-11 11:17:54	0.0	2019-06-11 11:17:54	true	0.0	1	REF000030	plv	3
+29	1	2019-06-11	Carte de recharge téléphonique	2020-02-07	0.0	0.0	0.0	121	0.0	1	1	2019-06-11 11:16:40	0.0	2019-06-13 08:09:02	true	0.0	4	REF000029	incentive	4

@@ -1,0 +1,118 @@
+export class ClientDetail {
+    company : number; 
+    country : number; 
+    parent : number; 
+    user : number; 
+    state : number; 
+    commercial_partner : number; 
+    team : number; 
+    type_quartier : number; 
+    source_approvisionnement : number; 
+    cible_installation_presentoirs : number; 
+    numero_telephone2 : string; 
+    numero_telephone3 : string;
+    numero_telephone1 : string;
+    couverture_commerciale : number; 
+    classification2 : number; 
+    nom_gerant : string; 
+    frequence_approvisionnement : number; 
+    enseigne_appartenance : number;
+    agence : number; 
+    activite_pos : number; 
+    fournisseur_principal : number; 
+    contrat : number; 
+    fournisseur_secondaire : number;  
+    nom_agent_commercial : number; 
+    cible_activation : number; 
+    etat : string;
+    statut_client : number; 
+    permanent_POSM5 : number; 
+    point_de_vente : number	; 
+    repere : string; 
+    emplacement : number;
+    cooperation_itg : number;  
+    proximite : number; 
+    frequence_visite : number; 
+    permanent_POSM3 : number; 
+    permanent_POSM1 : number; 
+    adresse : string; 
+    preference_animateur : number; 
+    provider_latitude : number; 
+    zone : number; 
+    latitude : number ; 
+    commentaire: string; 
+    longitude :  number; 
+    permanent_POSM4 : number; 
+    region : number; 
+    nom_pos : string;   
+    quartier : string;  
+    ville : number; 
+    type_client : number; 
+    utilisateur_associe : number; 
+    permanent_POSM2 : number;   
+    secteur : number;   
+    activation_autorisee : number;  
+    classification1 : number;    
+
+	constructor(company: number, country: number, parent: number, user: number, state: number, commercial_partner: number, team: number, type_quartier: number, source_approvisionnement: number, cible_installation_presentoirs: number, numero_telephone2: string, numero_telephone3: string, numero_telephone1: string, couverture_commerciale: number, classification2: number, nom_gerant: string, frequence_approvisionnement: number, enseigne_appartenance: number, agence: number, activite_pos: number, fournisseur_principal: number, contrat: number, fournisseur_secondaire: number, nom_agent_commercial: number, cible_activation: number, etat: string, statut_client: number, permanent_POSM5: number, point_de_vente: number	, repere: string, emplacement: number, cooperation_itg: number, proximite: number, frequence_visite: number, permanent_POSM3: number, permanent_POSM1: number, adresse: string, preference_animateur: number, provider_latitude: number, zone: number, latitude: number , commentaire: string, longitude:  number, permanent_POSM4: number, region: number, nom_pos: string, quartier: string, ville: number, type_client: number, utilisateur_associe: number, permanent_POSM2: number, secteur: number, activation_autorisee: number, classification1: number) {
+		this.company = company;
+		this.country = country;
+		this.parent = parent;
+		this.user = user;
+		this.state = state;
+		this.commercial_partner = commercial_partner;
+		this.team = team;
+		this.type_quartier = type_quartier;
+		this.source_approvisionnement = source_approvisionnement;
+		this.cible_installation_presentoirs = cible_installation_presentoirs;
+		this.numero_telephone2 = numero_telephone2;
+		this.numero_telephone3 = numero_telephone3;
+		this.numero_telephone1 = numero_telephone1;
+		this.couverture_commerciale = couverture_commerciale;
+		this.classification2 = classification2;
+		this.nom_gerant = nom_gerant;
+		this.frequence_approvisionnement = frequence_approvisionnement;
+		this.enseigne_appartenance = enseigne_appartenance;
+		this.agence = agence;
+		this.activite_pos = activite_pos;
+		this.fournisseur_principal = fournisseur_principal;
+		this.contrat = contrat;
+		this.fournisseur_secondaire = fournisseur_secondaire;
+		this.nom_agent_commercial = nom_agent_commercial;
+		this.cible_activation = cible_activation;
+		this.etat = etat;
+		this.statut_client = statut_client;
+		this.permanent_POSM5 = permanent_POSM5;
+		this.point_de_vente = point_de_vente;
+		this.repere = repere;
+		this.emplacement = emplacement;
+		this.cooperation_itg = cooperation_itg;
+		this.proximite = proximite;
+		this.frequence_visite = frequence_visite;
+		this.permanent_POSM3 = permanent_POSM3;
+		this.permanent_POSM1 = permanent_POSM1;
+		this.adresse = adresse;
+		this.preference_animateur = preference_animateur;
+		this.provider_latitude = provider_latitude;
+		this.zone = zone;
+		this.latitude = latitude;
+		this.commentaire = commentaire;
+		this.longitude = longitude;
+		this.permanent_POSM4 = permanent_POSM4;
+		this.region = region;
+		this.nom_pos = nom_pos;
+		this.quartier = quartier;
+		this.ville = ville;
+		this.type_client = type_client;
+		this.utilisateur_associe = utilisateur_associe;
+		this.permanent_POSM2 = permanent_POSM2;
+		this.secteur = secteur;
+		this.activation_autorisee = activation_autorisee;
+		this.classification1 = classification1;
+	}
+
+	
+    
+    
+
+}

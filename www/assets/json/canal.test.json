@@ -1,0 +1,12 @@
+[   
+    {
+        "create_uid" : 1, 
+        "name" : "Convenience", 
+        "write_uid" : 1 
+    },
+    {
+        "create_uid" : 1, 
+        "name" : "Horeca", 
+        "write_uid" : 1 
+    }
+]

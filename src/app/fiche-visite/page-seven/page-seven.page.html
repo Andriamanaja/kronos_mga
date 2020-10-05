@@ -1,0 +1,119 @@
+<ion-content>
+	<div class="container">
+
+		<!-- HEAD -->
+		<div class="head">
+			<div class="back_button">
+				<span>
+					<img src="../../../assets/image/logo_itg.png" (click)="open_menu()" />
+				</span>
+			</div>
+
+			<div class="menu">
+				<div class="list_icon">
+					<i class="fas fa-at"
+						style="color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					<i class="fas fa-comments"
+						style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+					<i class="fas fa-ban on fa-camera"
+						style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+				</div>
+			</div>
+
+			 <app-head></app-head>
+		</div>
+		<!-- HEAD -->
+
+
+		<div class="body">
+			<div class="bg-blanc">
+				<div class="title_body">
+					<h3 *ngIf = "data_from_route.partner_id">
+						<a (click)="page_six()">
+							<i class="fas fa-arrow-left" style="font-size: 18px ; color: #21B799"></i>
+						</a>
+						{{data_from_route.partner_id}}
+					</h3>
+				</div>
+
+				<div class="breacumb ui-g">
+					<div class="ui-g-4 dropdownworkflow">
+
+					</div>
+					<div class="ui-g-8 dropdownworkflow noCLick">
+						<p class="etat">{{etat}}</p>
+					</div>
+				</div>
+
+
+				<h3 *ngIf = "data_from_route.partner_id">{{data_from_route.partner_id}}</h3>
+
+				<div class="real-content-page">
+
+					<!--manaja-->
+
+
+					<div class="table" id="content-table-scroll" *ngIf="has_data">
+							<p-table #dt [columns]="cols" [value]="data_for_screen">
+					
+							  <ng-template pTemplate="header" let-columns>
+								<tr style="background-color: #D3D3D3">
+								  <th *ngFor="let col of columns" [pSortableColumn]="col.field"
+									[ngStyle]="{'display': col.display, 'width' : col.width}">
+									{{col.header}}
+									<p-sortIcon [field]="col.field"></p-sortIcon>
+								  </th>
+								</tr>
+							  </ng-template>
+					
+							  <ng-template pTemplate="body" let-rowData let-columns="columns">
+								<tr>
+					
+								  <td *ngFor="let col of columns"
+									[ngStyle]="{'display': col.display, 'text-align' : col.text_align, 'width' : col.width}"
+									style="background-color: #D3D3D3">
+									{{rowData[col.field]}}
+								  </td>
+					
+								</tr>
+							  </ng-template>
+							</p-table>
+						  </div>
+
+					<p-dialog header="Toutes les questions sur cette visite " [(visible)]="display">
+						<form [formGroup]="form" (ngSubmit)="submit(model, fields)">
+							<formly-form [form]="form" [fields]="fields" [model]="model"></formly-form>
+							<div style="text-align: right;">
+								<button type="submit" pButton class="btn btn-default" label="Valider" [disabled]="!form.valid" ></button>
+							</div>
+						</form>
+					</p-dialog>
+
+
+					<!--manaja-->
+
+					<div *ngIf = "has_survey == true ">
+						<button *ngIf="etat != 'Clôturée' && data_from_route.tour_status != 'cloture'" type="button" style="margin-left: 19%;" (click)="showDialog()" pButton icon="pi pi-info-circle" label="Accéder au questionnaire"></button>
+					</div>
+					
+				</div>
+
+				<div class="btn-action-etapes">
+					<button pButton type="button" class="bt btn-retour" label="RETOUR" (click)="page_six()"></button>
+					<span style="margin-left: 5px;margin-right: 5px;"> </span>
+
+					<button *ngIf="etat != 'Clôturée' && data_from_route.tour_status != 'cloture'" pButton type="button" class="bt btn-suivant"
+						label="FIN DE VISITE" (click)="end_visite()"></button>
+					<span style="margin-left: 5px;margin-right: 5px;"> </span>
+
+					<button pButton type="button" class="bt btn-suivant" label="RETOUR À LA PAGE 1"
+						(click)="page_one()"></button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="footer"></div>
+
+	</div>
+</ion-content>

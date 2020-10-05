@@ -1,0 +1,89 @@
+.body{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+h3{
+    font-size: 22px;
+    color: gray;
+    margin-left: 4px;
+    margin-top: 0;
+    margin-bottom: 0px;
+}
+
+.btn_nw_cr{
+    margin-left: 6px;
+}
+
+.bt{
+    margin-left : 2px
+}
+
+.title_body{
+    margin-top: 0px;
+    padding-top: 13px;
+    height: 48px;
+    padding-bottom: 13px;
+}
+
+.archive{
+    height: 48px;
+    background-color: #E2E2E0
+}
+
+.div_btn {
+    text-align: -webkit-right;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.cam {
+    text-align: -webkit-center;
+    width: 100px;
+    display: block;
+    border: 1px solid gray
+}
+
+.photo {
+    width: 98%;
+    margin-top: 8px;
+}
+
+.form_item {
+    margin-bottom: 30px;
+    margin-right: 14px;
+}
+
+.form_inside {
+    width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.gps {
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+p.canal {
+    font-weight: bold;
+    color: #21B799;
+}
+.example-chip-list{
+    width: 100%
+}
+
+.atc {
+   
+}
+
+:host ::ng-deep .ui-autocomplete .ui-autocomplete-input {
+    border-radius: 0px !important;
+    border-top: 0px !important;
+    border-left : 0px !important;
+    border-right : 0px !important;
+  }

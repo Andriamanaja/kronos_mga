@@ -1,0 +1,8 @@
+{
+  "name": "primeng",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "1a5a0fc1"
+}

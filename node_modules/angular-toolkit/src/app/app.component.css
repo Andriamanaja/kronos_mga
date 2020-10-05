@@ -1,0 +1,16 @@
+.bg-image {
+    border: 3px solid black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 500px;
+    height: 400px;
+}
+
+/*.list {
+    min-height: 300px;
+    padding-bottom: 50px;
+}*/
+
+.list-item {
+    min-height: 100px;
+}

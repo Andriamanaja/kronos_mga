@@ -1,0 +1,51 @@
+[
+    {
+        "create_uid" : 1, 
+        "name" : "Zone 1_1", 
+        "write_uid" : 1, 
+        "agence_id" : 1
+    }, 
+    {
+        "create_uid" : 2, 
+        "name" : "Zone 2_1", 
+        "write_uid" : 2, 
+        "agence_id" : 2
+    }, 
+    {
+        "create_uid" : 3, 
+        "name" : "Zone 1_2", 
+        "write_uid" : 3, 
+        "agence_id" : 1
+    }, 
+    {
+        "create_uid" : 4, 
+        "name" : "Zone 2_2", 
+        "write_uid" : 4, 
+        "agence_id" : 2
+    } ,
+    {
+        "create_uid" : 5, 
+        "name" : "Zone 3_1", 
+        "write_uid" : 5, 
+        "agence_id" : 3
+    }, 
+    {
+        "create_uid" : 6, 
+        "name" : "Zone 3_2", 
+        "write_uid" : 6, 
+        "agence_id" : 3
+    }, 
+    {
+        "create_uid" : 7, 
+        "name" : "Zone 4_1", 
+        "write_uid" : 7, 
+        "agence_id" : 4
+    }, 
+    {
+        "create_uid" : 8, 
+        "name" : "Zone 4_2", 
+        "write_uid" : 8, 
+        "agence_id" : 4
+    }
+    
+]

@@ -1,0 +1,80 @@
+.container{
+    background-position: center;
+    background-image: url(/web_enterprise/static/src/img/application-switcher-bg.jpg);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: #797083;
+    background: -moz-linear-gradient(135deg, #797083, #c59b9c);
+    background: -o-linear-gradient(135deg, #c59b9c, #797083);
+    background: -webkit-gradient(linear, left top, right bottom, from(#c59b9c), to(#797083));
+   width: 100%;
+   height: 100%;
+ }
+ 
+ .head {
+     background-color: #875A7B;
+     height: 40px;
+     display: grid;
+     grid-template-columns: 10% 80% 10%;
+ }
+ 
+ .back_button i {
+     vertical-align: -webkit-baseline-middle;
+     margin-top: 8px;
+ }
+ 
+ .menu_icon i {
+     vertical-align: -webkit-baseline-middle;
+     margin-top: 8px;
+ }
+ 
+ .menu_icon  {
+     text-align: -webkit-center;
+ }
+ 
+ .back_button {
+     text-align: -webkit-center;
+ }
+ 
+ .list_icon {
+     text-align: end;
+     margin-right: 14px;
+ }
+ 
+ .list_icon i{
+     vertical-align: -webkit-baseline-middle;
+     margin-top: 8px;
+     margin-bottom: 8px;
+ }
+.body{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+h3{
+    font-size: 22px;
+    color: gray;
+    margin-left: 6px;
+    margin-top: 0px ;
+}
+
+.btn_nw_cr{
+    margin-left: 6px;
+}
+
+.bt{
+    margin-left : 2px
+}
+
+.title_body{
+    margin-top: 0px;
+    padding-top: 13px;
+    height: 48px;
+    padding-bottom: 13px;
+}
+
+
+
+ 

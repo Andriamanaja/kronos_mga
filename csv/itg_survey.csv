@@ -1,0 +1,4 @@
+id	create_uid	name	write_uid	write_date	create_date	view_id	state	field_default_value
+3	1	Sondage Juin - AC Amont / Aval	1	2019-06-19 09:16:34	2019-06-19 09:10:09	824	open	{'default_x_question_3_4': 'answer_13_1'}
+2	1	Sondage pos	1	2019-06-18 11:02:01	2019-06-18 11:02:01	(null)	draft	{}
+1	1	Sondage pos	1	2019-06-19 09:09:31	2019-06-13 07:30:10	(null)	done	{}

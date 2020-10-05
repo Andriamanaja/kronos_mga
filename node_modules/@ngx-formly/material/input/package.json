@@ -1,0 +1,13 @@
+{
+  "main": "../bundles/ngx-formly-material-input.umd.js",
+  "module": "../fesm5/ngx-formly-material-input.js",
+  "es2015": "../fesm2015/ngx-formly-material-input.js",
+  "esm5": "../esm5/input/ngx-formly-material-input.js",
+  "esm2015": "../esm2015/input/ngx-formly-material-input.js",
+  "fesm5": "../fesm5/ngx-formly-material-input.js",
+  "fesm2015": "../fesm2015/ngx-formly-material-input.js",
+  "typings": "ngx-formly-material-input.d.ts",
+  "metadata": "ngx-formly-material-input.metadata.json",
+  "sideEffects": false,
+  "name": "@ngx-formly/material/input"
+}

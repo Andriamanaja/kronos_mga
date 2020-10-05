@@ -1,0 +1,39 @@
+<ion-content>
+    <div class = "head">
+        <img src = "../../assets/image/icon.png">
+    </div>
+
+    <div class = "body">
+        <div class = "form">
+            <form class = "connexion" [formGroup]="userFormGroup" (ngSubmit)="onSubmit()">
+                <div class="field">
+                    <p class="first">Login</p>
+                    <input formControlName="login" type="text" size="30" pInputText required> 
+                </div>
+
+                <div class="field">
+                    <p class="first">Password</p>
+                    <input formControlName="password" type="password" pInputText size="30" required/> 
+                </div>
+               
+                
+                    <p-messages [(value)]="msgs"></p-messages>
+    
+                <div class = "bouton">
+                    <button type="submit" pButton label="Connexion" [disabled]="!userFormGroup.valid"></button>
+                </div>
+
+                <!-- <div class = "bouton">
+                    <button type="button" pButton label="Update SEQ" (click) = "move_seq()"> </button>
+                </div>
+
+                <div class = "bouton">
+                    <button type="button" pButton label="Remove DB" (click) = "remove_db()"> </button>
+                </div> -->
+
+            </form>
+            
+        </div>
+    </div>
+
+</ion-content>

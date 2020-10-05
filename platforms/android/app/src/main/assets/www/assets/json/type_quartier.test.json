@@ -1,0 +1,17 @@
+[
+    {
+        "create_uid" : 1, 
+        "name" : "Haut standing", 
+        "write_uid" : 1
+    }, 
+    {
+        "create_uid" : 2, 
+        "name" : "Moyen standing", 
+        "write_uid" : 2
+    }, 
+    {
+        "create_uid" : 3,  
+        "name" : "Populaire", 
+        "write_uid" : 3
+    }
+]

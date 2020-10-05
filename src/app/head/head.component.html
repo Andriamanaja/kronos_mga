@@ -1,0 +1,16 @@
+<div class="menu_icon">
+ <div  *ngIf = "color_icon">
+    <p-menu (click)="go_sync()" #menu_2 [popup]="true" [model]="items_sync"></p-menu>
+    <a (click)="menu_2.toggle($event)"> 
+        <i *ngIf = "color_icon == '#21b799' " class="fas fa-sync" style="color : #21b799 ;font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" ></i>
+        <i *ngIf = "color_icon == '#e6db10' " class="fas fa-sync" style="color : #e6db10 ;font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" ></i>
+        <i *ngIf = "color_icon == '#b72121' " class="fas fa-sync" style="color : #b72121 ;font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" ></i>
+        <i *ngIf = "color_icon == 'transparent' " class="fas fa-sync" style="color : transparent ;font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" ></i>
+    </a>
+  </div>
+
+  <div>
+    <p-menu (click)="Deconnexion()" #menu [popup]="true" [model]="itemes"></p-menu>
+    <a (click)="menu.toggle($event)"> <i class="fas fa-bars" style=" color: white; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i></a>
+  </div>
+</div>

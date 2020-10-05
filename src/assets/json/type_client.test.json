@@ -1,0 +1,26 @@
+[
+    {
+        "create_uid" : 1, 
+        "code" : "DMG", 
+        "name" : "Demi-grossiste", 
+        "write_uid" : 1 
+    } ,
+    {
+        "create_uid" : 2, 
+        "code" : "G", 
+        "name" : "Grossiste", 
+        "write_uid" : 2
+    } ,
+    {
+        "create_uid" : 3, 
+        "code" : "D", 
+        "name" : "Détaillant", 
+        "write_uid" : 3 
+    } ,
+    {
+        "create_uid" : 4, 
+        "code" : "T", 
+        "name" : "Tablier", 
+        "write_uid" : 4
+    }
+]

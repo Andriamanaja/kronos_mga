@@ -1,0 +1,76 @@
+<ion-content>
+  <div class="container">
+
+    <!-- HEAD -->
+    <div class="head_2">
+      <div class="back_button">
+        <span>
+          <img src="../../assets/image/logo_itg.png" (click)="navigate_back()" />
+        </span>
+        <!--<i class="fas fa-chevron-left" style=" color: transparent; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle" *ngIf="!root"></i> -->
+      </div>
+
+      <div class="menu">
+        <div class="list_icon">
+          <i class="fas fa-at"
+            style="color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+          <i class="fas fa-comments"
+            style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+          <i class="fas fa-ban on fa-camera"
+            style=" color: white ;   margin-right: 10px; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i>
+        </div>
+      </div>
+
+      
+      <!--ICONE-->
+
+      <div class="mnk">
+        <p-menu (click)="Deconnexion()" #menu [popup]="true" [model]="itemes"></p-menu>
+        <a (click)="menu.toggle($event)"> <i class="fas fa-bars" style=" color: white; font-size: 20px ; font-size: 20px ; vertical-align: -webkit-baseline-middle"></i></a>
+      </div>
+
+      <!--ICONE-->
+
+
+    </div>
+    <!-- HEAD -->
+
+    <!-- SEARCH-BAR -->
+    <div class="search_bar">
+      <div class="ui-inputgroup ZoneSearchAccueil">
+        <span class="ui-inputgroup-addon"><i class="fas fa-search"></i></span>
+        <input class="search" type="text" [(ngModel)]="term" pInputText placeholder="Recherche">
+      </div>
+      <div *ngIf="loadIndicator" class="spinner">
+        <ion-spinner name="lines" color="medium"></ion-spinner>
+      </div>
+    </div>
+    <!-- SEARCH-BAR -->
+
+
+    <div class="body">
+      <div class="message">
+
+       <!--<p-messages *ngIf = "msgs_data" [(value)]="msgs_data"></p-messages>-->
+       <p-messages [(value)]="msgs"></p-messages>
+
+      </div>
+
+      <div class="ui-g">
+        <div class="cmp ui-g-4" *ngFor="let menu of menus | filter:term" (click)="open_menu(menu.name)">
+          <img class="mn_icn" [src]="menu.icone">
+          <span class="nom">{{menu.name}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <img class="kronos_logo" src="../../assets/image/icon.png">
+      <div class="version">
+        <p>MG version : 1.8.13</p>
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>
